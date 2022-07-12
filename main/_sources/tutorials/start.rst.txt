@@ -38,7 +38,11 @@ Startup Script run-dev-c7.sh
 ----------------------------
 
 Next, copy the startup script to your local bin directory and make it 
-executable:
+executable. 
+
+**IMPORTANT: before doing the next steps go to 'Other Versions'
+at the bottom of the left side-bar and select the version you want. The
+latest version is recommended.**
 
 - cd $HOME/bin
 - wget -nc |RunLink|  
