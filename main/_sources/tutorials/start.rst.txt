@@ -34,19 +34,18 @@ adopters may need to install them as follows::
     bash <(curl -s https://raw.githubusercontent.com/dls-controls/dev-c7/main/edm-fonts/install-fonts.sh)
 
 
-
 Startup Script run-dev-c7.sh
 ----------------------------
 
 Next, copy the startup script to your local bin directory and make it 
-executable::
+executable:
 
-    cd $HOME/bin
-    wget -nc https://github.com/dls-controls/dev-c7/releases/download/2.0.0/run-dev-c7.sh
-    chmod +x run-dev-c7.sh
+- cd $HOME/bin
+- wget -nc |RunLink|  
+- chmod +x run-dev-c7.sh
 
-The above gets version 2.0.0 which is current as of 01/07/2022.
-See https://github.com/dls-controls/dev-c7/releases for the latest updates.
+The above gets version |ProjectVersion| which was the latest release when these docs were
+built. See https://github.com/dls-controls/dev-c7/releases for all releases.
 
 Finally, launch an instance of the container by typing::
 
