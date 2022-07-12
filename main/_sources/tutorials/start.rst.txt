@@ -31,7 +31,7 @@ The edm display manager uses local fonts that need to be installed on your host.
 Again, these should be part of the standard RHEL8 installation but early
 adopters may need to install them as follows::
 
-    bash <(curl -s https://github.com/dls-controls/dev-c7/raw/main/edm-fonts/install-fonts.sh)
+    bash <(curl -s https://raw.githubusercontent.com/dls-controls/dev-c7/main/edm-fonts/install-fonts.sh)
 
 
 
