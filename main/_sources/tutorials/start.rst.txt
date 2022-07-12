@@ -1,3 +1,5 @@
+.. _start:
+
 Quick Start
 ===========
 
@@ -20,6 +22,19 @@ will need::
 
     sudo yum install crun
 
+
+Install edm fonts
+-----------------
+
+The edm display manager uses local fonts that need to be installed on your host.
+
+Again, these should be part of the standard RHEL8 installation but early
+adopters may need to install them as follows::
+
+    bash <(curl -s https://github.com/dls-controls/dev-c7/raw/main/edm-fonts/install-fonts.sh)
+
+
+
 Startup Script run-dev-c7.sh
 ----------------------------
 
@@ -28,7 +43,7 @@ executable::
 
     cd $HOME/bin
     wget -nc https://github.com/dls-controls/dev-c7/releases/download/2.0.0/run-dev-c7.sh
-    chmod run-dev-c7.sh
+    chmod +x run-dev-c7.sh
 
 The above gets version 2.0.0 which is current as of 01/07/2022.
 See https://github.com/dls-controls/dev-c7/releases for the latest updates.
@@ -41,6 +56,7 @@ Finally, launch an instance of the container by typing::
     For the first invocation of an updated version of the container there 
     will be a 30 second delay while the filesystem user id namespace mapping 
     is cached.
+
 
 How to Work
 -----------

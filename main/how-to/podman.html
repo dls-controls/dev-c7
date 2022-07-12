@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Updating Podman Settings &mdash; dev-c7 2.0.0-2-g96fd87d
+  <title>Updating Podman Settings &mdash; dev-c7 2.0.0-5-g323af2d
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
             <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.0-2-g96fd87d
+                2.0.0-5-g323af2d
 
               </div>
 <div role="search">
@@ -113,6 +113,12 @@
 support features required by dev-c7.</p>
 <section id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Updating your container filesystem requires deleting all images,
+containers and volumes in your cache. Make sure you are able to
+recreate all assets you need before continuing</p>
+</div>
 <p>The additional features are:</p>
 <ol class="arabic simple">
 <li><dl class="simple">
@@ -142,12 +148,6 @@ support features required by dev-c7.</p>
 <p>At the time of writing the podman setup script implements (3) above only.
 For the moment early adopters will need to apply (1) and (2) manually.
 The script should be updated by 11/07/2022.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Updating your container filesystem requires deleting all images,
-containers and volumes in your cache. Make sure you are able to
-recreate all assets you need before continuing</p>
 </div>
 </section>
 <section id="scratch-area">
@@ -203,7 +203,13 @@ files for the updates shown in $HOME/.config/containers:</p>
     <span class="n">runtime</span> <span class="o">=</span> <span class="s2">&quot;crun&quot;</span>
 </pre></div>
 </div>
-<p>That’s it you should now be able to start using podman and it should
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are an early adopter then you will need to set driver and
+runtime yourself by editing storage.conf manually.
+(see above warning)</p>
+</div>
+<p>That’s it. You should now be able to start using podman and it should
 be fully compatible with dev-c7.</p>
 </section>
 </section>
@@ -238,7 +244,7 @@ be fully compatible with dev-c7.</p>
   <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Other Versions</span>
-      2.0.0-2-g96fd87d
+      2.0.0-5-g323af2d
 
       <span class="fa fa-caret-down"></span>
     </span>

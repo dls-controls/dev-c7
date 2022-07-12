@@ -11,6 +11,11 @@ support features required by dev-c7.
 Features
 --------
 
+.. note::
+    Updating your container filesystem requires deleting all images,
+    containers and volumes in your cache. Make sure you are able to 
+    recreate all assets you need before continuing
+
 The additional features are:
 
 #. the crun container runtime 
@@ -26,11 +31,6 @@ The additional features are:
     For the moment early adopters will need to apply (1) and (2) manually.
     The script should be updated by 11/07/2022.
 
-
-.. note::
-    Updating your container filesystem requires deleting all images,
-    containers and volumes in your cache. Make sure you are able to 
-    recreate all assets you need before continuing
 
 Scratch Area
 ------------
@@ -80,7 +80,14 @@ files for the updates shown in $HOME/.config/containers::
     libpod.conf
         runtime = "crun"
 
-That's it you should now be able to start using podman and it should 
+.. note::
+
+    If you are an early adopter then you will need to set driver and 
+    runtime yourself by editing storage.conf manually. 
+    (see above warning)
+
+
+That's it. You should now be able to start using podman and it should 
 be fully compatible with dev-c7.
 
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; dev-c7 2.0.0-2-g96fd87d
+  <title>Quick Start &mdash; dev-c7 2.0.0-5-g323af2d
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
             <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
           </a>
               <div class="version">
-                2.0.0-2-g96fd87d
+                2.0.0-5-g323af2d
 
               </div>
 <div role="search">
@@ -51,6 +51,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-edm-fonts">Install edm fonts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#startup-script-run-dev-c7-sh">Startup Script run-dev-c7.sh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-work">How to Work</a></li>
 </ul>
@@ -104,7 +105,7 @@
            <div itemprop="articleBody">
              
   <section id="quick-start">
-<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h1>
+<span id="start"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h1>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
 <p>First, if you have never used containers at DLS before, then you must
@@ -124,13 +125,22 @@ will need:</p>
 </pre></div>
 </div>
 </section>
+<section id="install-edm-fonts">
+<h2>Install edm fonts<a class="headerlink" href="#install-edm-fonts" title="Permalink to this heading"></a></h2>
+<p>The edm display manager uses local fonts that need to be installed on your host.</p>
+<p>Again, these should be part of the standard RHEL8 installation but early
+adopters may need to install them as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dls</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">/</span><span class="n">raw</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">edm</span><span class="o">-</span><span class="n">fonts</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">fonts</span><span class="o">.</span><span class="n">sh</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
 <section id="startup-script-run-dev-c7-sh">
 <h2>Startup Script run-dev-c7.sh<a class="headerlink" href="#startup-script-run-dev-c7-sh" title="Permalink to this heading"></a></h2>
 <p>Next, copy the startup script to your local bin directory and make it
 executable:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/bin
 wget -nc https://github.com/dls-controls/dev-c7/releases/download/2.0.0/run-dev-c7.sh
-chmod run-dev-c7.sh
+chmod +x run-dev-c7.sh
 </pre></div>
 </div>
 <p>The above gets version 2.0.0 which is current as of 01/07/2022.
@@ -202,7 +212,7 @@ compilation, testing.</p></li>
   <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
     <span class="rst-current-version" data-toggle="rst-current-version">
       <span class="fa fa-book"> Other Versions</span>
-      2.0.0-2-g96fd87d
+      2.0.0-5-g323af2d
 
       <span class="fa fa-caret-down"></span>
     </span>
