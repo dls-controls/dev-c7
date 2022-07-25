@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VSCode Integration &mdash; dev-c7 2.0.3
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bash Prompt in dev-c7" href="prompt.html" />
+    <link rel="prev" title="More Features" href="continue.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+            <a href="../index.html" class="icon icon-home"> dev-c7
+            <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.0.3
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="continue.html">More Features</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VSCode Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#initial-setup">Initial Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-remote-development-plugin">Install remote development plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#update-vscode-user-settings">Update VSCode User settings</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use">How to Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#container-lifetime">Container Lifetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vscode-container-removal">VSCode Container Removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#known-issues">Known Issues</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#first-integrated-terminal">First integrated terminal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>VSCode Integration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/vscode.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vscode-integration">
+<h1>VSCode Integration<a class="headerlink" href="#vscode-integration" title="Permalink to this heading"></a></h1>
+<p>VSCode has beautiful integration for developing in containers. See here
+<a class="reference external" href="https://code.visualstudio.com/docs/remote/containers">https://code.visualstudio.com/docs/remote/containers</a> for a detailed
+description of this feature.</p>
+<p>When running VSCode with a developer container:</p>
+<ul class="simple">
+<li><p>All integrated terminals run inside the container</p></li>
+<li><p>The test explorer will run tests inside the container</p></li>
+<li><p>File dialogs will browse the container’s file system</p></li>
+<li><p>Python and C++ debugging are available for processes running in the
+container</p></li>
+</ul>
+<section id="initial-setup">
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this heading"></a></h2>
+<section id="install-remote-development-plugin">
+<h3>Install remote development plugin<a class="headerlink" href="#install-remote-development-plugin" title="Permalink to this heading"></a></h3>
+<p>Run up VSCode and install the remote development plugin:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">vscode</span>
+<span class="n">code</span>
+</pre></div>
+</div>
+<p>Then inside VSCode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ctrl</span><span class="o">+</span><span class="n">P</span>
+<span class="n">ext</span> <span class="n">install</span> <span class="n">ms</span><span class="o">-</span><span class="n">VSCode</span><span class="o">-</span><span class="n">remote</span><span class="o">.</span><span class="n">VSCode</span><span class="o">-</span><span class="n">remote</span><span class="o">-</span><span class="n">extensionpack</span>
+</pre></div>
+</div>
+</section>
+<section id="update-vscode-user-settings">
+<h3>Update VSCode User settings<a class="headerlink" href="#update-vscode-user-settings" title="Permalink to this heading"></a></h3>
+<p>Add the following settings to you user configuration for VSCode in
+<code class="docutils literal notranslate"><span class="pre">$HOME/.config/Code/User/settings.json</span></code></p>
+<p>These settings ensures that each terminal loads the bash (login) profile by
+default.
+Bash will then run .bash_profile and this includes essential setup for
+DLS controls developer environment.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;terminal.integrated.defaultProfile.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bash (login)&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="nt">&quot;terminal.integrated.profiles.linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;bash (login)&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="s2">&quot;-l&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">],</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bash&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This setting tells remote container development to use podman instead of
+docker.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;remote.containers.dockerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;podman&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="how-to-use">
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h2>
+<p>To use VSCode with a developer container, first add the
+<code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> folder with <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code>
+file to the root of your project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">my</span> <span class="n">project</span> <span class="n">folder</span><span class="o">&gt;</span>
+<span class="n">mkdir</span> <span class="o">.</span><span class="n">devcontainer</span>
+<span class="n">cd</span> <span class="o">.</span><span class="n">devcontainer</span>
+<span class="n">wget</span> <span class="o">-</span><span class="n">q</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dls</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="mf">2.0.0</span><span class="o">/</span><span class="n">devcontainer</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Then launch VSCode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">my</span> <span class="n">project</span> <span class="n">folder</span><span class="o">&gt;</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">vscode</span>
+<span class="n">code</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Click on <code class="docutils literal notranslate"><span class="pre">Reopen</span> <span class="pre">in</span> <span class="pre">Container</span></code> when you see a dialogue with the message
+<code class="docutils literal notranslate"><span class="pre">Folder</span> <span class="pre">contains</span> <span class="pre">a</span> <span class="pre">Dev</span> <span class="pre">Container</span> <span class="pre">configuration</span> <span class="pre">file.</span></code></p>
+<p>Close the first terminal that you see and open another one (see <a class="reference internal" href="#vscode-known"><span class="std std-ref">Known Issues</span></a>)</p>
+<p>That’s it, you are now running a developer container and your vscode session
+is connected to it.</p>
+<p>The above gets version 2.0.0 which is current as of 01/07/2022.
+See <a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">https://github.com/dls-controls/dev-c7/releases</a> for the latest updates.</p>
+</section>
+<section id="container-lifetime">
+<h2>Container Lifetime<a class="headerlink" href="#container-lifetime" title="Permalink to this heading"></a></h2>
+<p>Like the <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> script, the container will be kept alive. If you
+exit and re-enter VSCode you will be reconnected to the same container.</p>
+<p>When you run <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">ps</span></code> you will see the container is running and is named
+something like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">localhost</span><span class="o">/</span><span class="n">vsc</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">-</span><span class="mi">914745539</span><span class="n">fc385a5fe9188693f0fa257</span><span class="o">-</span><span class="n">uid</span>
+</pre></div>
+</div>
+<p>You can recreate the container from scratch by deleting it with <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">rm</span></code>
+or you can tell VSCode to rebuild it using the remotes menu. This menu is
+accessed by clicking the icon in the very bottom left of the VSCode window.</p>
+<figure class="align-center" id="id1">
+<img alt="../_images/button.png" src="../_images/button.png" />
+<figcaption>
+<p><span class="caption-text">The Remotes Menu Button</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The remotes menu option <code class="docutils literal notranslate"><span class="pre">Rebuild</span> <span class="pre">Container</span></code> will close the session,
+rebuild the container
+and reopen the session in the new container.</p>
+<p>Note that this means that the containers used by VSCode and those used
+by <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> are distinct. So if you install something into one it will
+not be seen in the other.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VSCode will use a different container for each folder. If you would
+like to share a container between folders:</p>
+<ul class="simple">
+<li><p>open multiple folders in a single VSCode session by choosing “Add
+Folder to Workspace” from the right click menu in the File Explorer</p></li>
+<li><p>choose <code class="docutils literal notranslate"><span class="pre">File-&gt;Save</span> <span class="pre">Workspace</span> <span class="pre">As...</span></code> and save the workspace to a
+file, usually in the folder that is a common root to your projects.</p></li>
+<li><p>copy the <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> folder to the same folder as the workspace
+file.</p></li>
+<li><p>go to the remotes menu (icon in bottom left of VSCode) and choose
+<code class="docutils literal notranslate"><span class="pre">Reopen</span> <span class="pre">Container</span></code></p></li>
+</ul>
+</div>
+</section>
+<section id="vscode-container-removal">
+<h2>VSCode Container Removal<a class="headerlink" href="#vscode-container-removal" title="Permalink to this heading"></a></h2>
+<p>If you want to remove all of the containers that VSCode has created then the
+following will do the trick:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>podman rmi -f $(podman images --filter=reference=&#39;*vsc-*&#39; -q)
+</pre></div>
+</div>
+<p>This may be useful if you are having trouble with VSCode devcontainers or
+if you are running low on disk space.</p>
+</section>
+<section id="known-issues">
+<span id="vscode-known"></span><h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this heading"></a></h2>
+<section id="first-integrated-terminal">
+<h3>First integrated terminal<a class="headerlink" href="#first-integrated-terminal" title="Permalink to this heading"></a></h3>
+<p>When a devcontainer is launched, it will usually start a single terminal that is
+NOT using the login profile. This means you won’t see your usual bash prompt
+and none of the DLS development environment will be available.</p>
+<p>To work around this, close and reopen the 1st terminal
+or type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="o">-</span><span class="n">l</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="continue.html" class="btn btn-neutral float-left" title="More Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="prompt.html" class="btn btn-neutral float-right" title="Bash Prompt in dev-c7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.0.3
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
