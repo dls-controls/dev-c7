@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.0.2-7-gc421e11
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.0.3-2-g13be082
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -188,7 +188,7 @@ commands used.</p>
 <span class="c"># dev tools and libraries</span>
 <span class="k">RUN</span><span class="w"> </span>yum update -y <span class="o">&amp;&amp;</span> <span class="se">\</span>
     yum groupinstall -y <span class="s2">&quot;Development Tools&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
-    yum install -y glibc.i686 redhat-lsb-core libusbx net-snmp-libs environment-modules git2u net-tools screen cmake lapack-devel readline-devel pcre-devel boost-devel libpcap-devel numactl-libs vim dbus-x11 bind-utils libssh2-devel
+    yum install -y glibc.i686 redhat-lsb-core libusbx net-snmp-libs environment-modules git2u net-tools screen cmake lapack-devel readline-devel pcre-devel boost-devel libpcap-devel numactl-libs vim dbus-x11 bind-utils libssh2-devel xorg-x11-server-Xvfb
 
 <span class="c"># edm dependencies</span>
 <span class="k">RUN</span><span class="w"> </span>yum install -y epel-release <span class="o">&amp;&amp;</span> <span class="se">\</span>
