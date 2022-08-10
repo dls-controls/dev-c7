@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Updating Podman Settings &mdash; dev-c7 2.0.4
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How the dev-c7 Container Works" href="../explanations/how_it_works.html" />
+    <link rel="prev" title="Derive your own container image" href="deriving.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+            <a href="../index.html" class="icon icon-home"> dev-c7
+            <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.0.4
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Updating Podman Settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scratch-area">Scratch Area</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-settings">Update Settings</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Updating Podman Settings</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to/podman.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="updating-podman-settings">
+<h1>Updating Podman Settings<a class="headerlink" href="#updating-podman-settings" title="Permalink to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please ensure you are using a RHEL8 workstation before continuing.</p>
+</div>
+<p>Previous users of podman may need to update their podman settings to
+support features required by dev-c7.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Updating your container filesystem requires deleting all images,
+containers and volumes in your cache. Make sure you are able to
+recreate all assets you need before continuing</p>
+</div>
+<p>The additional features are:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>the crun container runtime</dt><dd><ul class="simple">
+<li><p>to support secondary groups in shared folders</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>the overlay file system</dt><dd><ul class="simple">
+<li><p>provide a much faster container build and run</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>put the root of podman scratch files in /scratch/&lt;fed_id&gt;/podman</dt><dd><ul class="simple">
+<li><p>avoid loosing all scratch your files on <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">system</span> <span class="pre">reset</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At the time of writing the podman setup script implements (3) above only.
+For the moment early adopters will need to apply (1) and (2) manually.
+The script should be updated by 11/07/2022.</p>
+</div>
+</section>
+<section id="scratch-area">
+<h2>Scratch Area<a class="headerlink" href="#scratch-area" title="Permalink to this heading"></a></h2>
+<p>The most important thing to do is verify if podman is using the root of
+your scratch area. Take a look in the file
+<code class="docutils literal notranslate"><span class="pre">$HOME/.config/containers/storage.conf</span></code>. There is a field called
+<code class="docutils literal notranslate"><span class="pre">graphroot</span></code>, if this is <em>/scratch/&lt;fed_id&gt;</em> then you need to proceed with
+caution and follow the rest of this section. If it is
+<em>/scratch/&lt;fed_id&gt;/podman</em>
+then proceed to <a class="reference internal" href="#update"><span class="std std-ref">Update Settings</span></a>.</p>
+<p>This is a one off process only, in future your podman files will be safely in
+their own subfolder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running podman system reset
+an error regarding removal of <code class="docutils literal notranslate"><span class="pre">/run/user/&lt;uder_id&gt;</span></code> is benign.</p>
+</div>
+<p>You have two options for proceeding:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt>move everything first</dt><dd><ul class="simple">
+<li><p>move all files and folders you want to keep out of /scratch/&lt;fed&gt;</p></li>
+<li><p>execute <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">system</span> <span class="pre">reset</span></code></p></li>
+<li><p>mkdir /scratch/&lt;fed_id&gt;</p></li>
+<li><p>move your files back</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>use sudo (or ask SciComp) to remove podman files from <em>/scratch/&lt;fed_id&gt;</em></dt><dd><ul class="simple">
+<li><p>sudo rm -rf vfs* libpod mounts *.lock</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</section>
+<section id="update-settings">
+<span id="update"></span><h2>Update Settings<a class="headerlink" href="#update-settings" title="Permalink to this heading"></a></h2>
+<p>Before proceeding, clear out your old podman filesystem. This will delete
+all images, containers and volumes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">system</span> <span class="n">reset</span>
+</pre></div>
+</div>
+<p>The next step is to update your settings with the setup script:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">podman</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>If you want to verify that the changes were applied then check the following
+files for the updates shown in $HOME/.config/containers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">storage</span><span class="o">.</span><span class="n">conf</span>
+    <span class="p">[</span><span class="n">storage</span><span class="p">]</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="s2">&quot;overlay&quot;</span>
+        <span class="n">runroot</span> <span class="o">=</span> <span class="s2">&quot;/run/user/&lt;uder_id&gt;/podman&quot;</span>
+        <span class="n">graphroot</span> <span class="o">=</span> <span class="s2">&quot;/scratch/&lt;fed_id&gt;/podman&quot;</span>
+        <span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">options</span><span class="p">]</span>
+            <span class="n">mount_program</span> <span class="o">=</span> <span class="s2">&quot;/bin/fuse-overlayfs&quot;</span>
+
+<span class="n">libpod</span><span class="o">.</span><span class="n">conf</span>
+    <span class="n">runtime</span> <span class="o">=</span> <span class="s2">&quot;crun&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are an early adopter then you will need to set driver and
+runtime yourself by editing storage.conf manually.
+(see above warning)</p>
+</div>
+<p>That’s it. You should now be able to start using podman and it should
+be fully compatible with dev-c7.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="deriving.html" class="btn btn-neutral float-left" title="Derive your own container image" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../explanations/how_it_works.html" class="btn btn-neutral float-right" title="How the dev-c7 Container Works" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.0.4
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
