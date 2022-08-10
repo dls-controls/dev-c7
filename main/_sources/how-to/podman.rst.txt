@@ -45,6 +45,10 @@ then proceed to `update`.
 This is a one off process only, in future your podman files will be safely in 
 their own subfolder.
 
+.. note::
+    When running podman system reset
+    an error regarding removal of ``/run/user/<uder_id>`` is benign.
+
 You have two options for proceeding:
 
 #. move everything first
@@ -74,8 +78,12 @@ If you want to verify that the changes were applied then check the following
 files for the updates shown in $HOME/.config/containers::
 
     storage.conf
-        driver = "overlay"
-        graphroot = "/scratch/<fed_id>/podman"
+        [storage]
+            driver = "overlay"
+            runroot = "/run/user/<uder_id>/podman"
+            graphroot = "/scratch/<fed_id>/podman"  
+            [storage.options]
+                mount_program = "/bin/fuse-overlayfs"
 
     libpod.conf
         runtime = "crun"

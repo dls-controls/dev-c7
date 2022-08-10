@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Troubleshooting &mdash; dev-c7 2.0.3-2-g13be082
+  <title>Troubleshooting &mdash; dev-c7 2.0.3-5-g8762433
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -60,6 +60,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#edm-fonts">EDM Fonts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#insufficient-uids-gids">Insufficient UIDs/GIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subuid-settings-missing">subuid settings missing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyqt-errors">PyQt Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-protections-error">Memory Protections Error</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="deriving.html">Derive your own container image</a></li>
@@ -128,6 +131,36 @@ editing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">system</span> <span class="n">migrate</span>
 </pre></div>
 </div>
+</section>
+<section id="subuid-settings-missing">
+<h2>subuid settings missing<a class="headerlink" href="#subuid-settings-missing" title="Permalink to this heading"></a></h2>
+<p>IF you see this error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ERRO</span><span class="p">[</span><span class="mi">0000</span><span class="p">]</span> <span class="n">cannot</span> <span class="n">find</span> <span class="n">UID</span><span class="o">/</span><span class="n">GID</span> <span class="k">for</span> <span class="n">user</span> <span class="n">hgv27681</span><span class="p">:</span> <span class="n">No</span> <span class="n">subuid</span> <span class="n">ranges</span> <span class="n">found</span> <span class="k">for</span> <span class="n">user</span> <span class="s2">&quot;hgv27681&quot;</span> <span class="ow">in</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span> <span class="o">-</span> <span class="n">check</span> <span class="n">rootless</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">man</span> <span class="n">pages</span><span class="o">.</span>
+<span class="n">WARN</span><span class="p">[</span><span class="mi">0000</span><span class="p">]</span> <span class="n">Using</span> <span class="n">rootless</span> <span class="n">single</span> <span class="n">mapping</span> <span class="n">into</span> <span class="n">the</span> <span class="n">namespace</span><span class="o">.</span> <span class="n">This</span> <span class="n">might</span> <span class="k">break</span> <span class="n">some</span> <span class="n">images</span><span class="o">.</span> <span class="n">Check</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span> <span class="ow">and</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subgid</span> <span class="k">for</span> <span class="n">adding</span> <span class="n">sub</span><span class="o">*</span><span class="n">ids</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">using</span> <span class="n">a</span> <span class="n">network</span> <span class="n">user</span>
+</pre></div>
+</div>
+<p>Then you probably have an empty /etc/subuid file. This is automatically updated by
+cfengine at 11AM every day. If your workstation was recently built then you may
+need to wait until the next 11AM !!</p>
+</section>
+<section id="pyqt-errors">
+<h2>PyQt Errors<a class="headerlink" href="#pyqt-errors" title="Permalink to this heading"></a></h2>
+<p>Some PyQt applications may show this error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libGL</span> <span class="n">error</span><span class="p">:</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">load</span> <span class="n">driver</span><span class="p">:</span> <span class="n">swrast_dri</span><span class="o">.</span><span class="n">so</span>
+<span class="n">libGL</span> <span class="n">error</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">driver</span><span class="p">:</span> <span class="n">swrast</span>
+</pre></div>
+</div>
+<p>This is benign and can be ignored. (if the application is not launching Then
+this is a different issue - don’t be distracted by this error)</p>
+</section>
+<section id="memory-protections-error">
+<h2>Memory Protections Error<a class="headerlink" href="#memory-protections-error" title="Permalink to this heading"></a></h2>
+<p>If you see this on launch of podman containers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">:</span> <span class="n">error</span> <span class="k">while</span> <span class="n">loading</span> <span class="n">shared</span> <span class="n">libraries</span><span class="p">:</span> <span class="n">libc</span><span class="o">.</span><span class="n">so</span><span class="mf">.6</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">change</span> <span class="n">memory</span> <span class="n">protections</span>
+</pre></div>
+</div>
+<p>Then you are missing the <code class="docutils literal notranslate"><span class="pre">mount_program</span> <span class="pre">=</span> <span class="pre">&quot;/bin/fuse-overlayfs&quot;</span></code> entry in your
+storage.conf file. See <a class="reference internal" href="podman.html"><span class="doc">Updating Podman Settings</span></a>.</p>
 </section>
 </section>
 

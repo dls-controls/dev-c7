@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Updating Podman Settings &mdash; dev-c7 2.0.3-2-g13be082
+  <title>Updating Podman Settings &mdash; dev-c7 2.0.3-5-g8762433
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -160,6 +160,11 @@ caution and follow the rest of this section. If it is
 then proceed to <a class="reference internal" href="#update"><span class="std std-ref">Update Settings</span></a>.</p>
 <p>This is a one off process only, in future your podman files will be safely in
 their own subfolder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When running podman system reset
+an error regarding removal of <code class="docutils literal notranslate"><span class="pre">/run/user/&lt;uder_id&gt;</span></code> is benign.</p>
+</div>
 <p>You have two options for proceeding:</p>
 <ol class="arabic simple">
 <li><dl class="simple">
@@ -195,8 +200,12 @@ all images, containers and volumes:</p>
 <p>If you want to verify that the changes were applied then check the following
 files for the updates shown in $HOME/.config/containers:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">storage</span><span class="o">.</span><span class="n">conf</span>
-    <span class="n">driver</span> <span class="o">=</span> <span class="s2">&quot;overlay&quot;</span>
-    <span class="n">graphroot</span> <span class="o">=</span> <span class="s2">&quot;/scratch/&lt;fed_id&gt;/podman&quot;</span>
+    <span class="p">[</span><span class="n">storage</span><span class="p">]</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="s2">&quot;overlay&quot;</span>
+        <span class="n">runroot</span> <span class="o">=</span> <span class="s2">&quot;/run/user/&lt;uder_id&gt;/podman&quot;</span>
+        <span class="n">graphroot</span> <span class="o">=</span> <span class="s2">&quot;/scratch/&lt;fed_id&gt;/podman&quot;</span>
+        <span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">options</span><span class="p">]</span>
+            <span class="n">mount_program</span> <span class="o">=</span> <span class="s2">&quot;/bin/fuse-overlayfs&quot;</span>
 
 <span class="n">libpod</span><span class="o">.</span><span class="n">conf</span>
     <span class="n">runtime</span> <span class="o">=</span> <span class="s2">&quot;crun&quot;</span>

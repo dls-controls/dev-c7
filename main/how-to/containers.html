@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.0.3-2-g13be082
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.0.3-5-g8762433
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -232,7 +232,7 @@ commands used.</p>
 
 <span class="c"># useful tools </span>
 <span class="k">RUN</span><span class="w"> </span>yum install -y meld tk dejavu-sans-mono-fonts gnome-terminal xterm <span class="se">\</span>
-     xmessage evince eog firefox java
+    xmessage evince eog firefox java openldap-clients
 
 <span class="c"># Workaround to ensure all locales are available</span>
 <span class="k">RUN</span><span class="w"> </span>sed -i <span class="s2">&quot;/override_install_langs=en_US/d&quot;</span> /etc/yum.conf
