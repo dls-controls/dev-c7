@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Updating Podman Settings &mdash; dev-c7 2.0.4-5-gebf11a9
+  <title>Updating Podman Settings &mdash; dev-c7 2.0.4-9-g7bc9477
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -61,8 +61,6 @@
 <li class="toctree-l1"><a class="reference internal" href="deriving.html">Derive your own container image</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Updating Podman Settings</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#scratch-area">Scratch Area</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#update-settings">Update Settings</a></li>
 </ul>
 </li>
 </ul>
@@ -110,14 +108,19 @@
 </div>
 <p>Previous users of podman may need to update their podman settings to
 support features required by dev-c7.</p>
-<section id="features">
-<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Updating your container filesystem requires deleting all images,
+<p>Updating your container filesystem may require deleting all images,
 containers and volumes in your cache. Make sure you are able to
 recreate all assets you need before continuing</p>
 </div>
+<p>To update simply run the script <code class="docutils literal notranslate"><span class="pre">/dls_sw/apps/setup-podman/setup.sh</span></code>.
+If your podman config is already up to date then this will have no effect,
+if it needs to delete your cache it will warn you before doing so.</p>
+<p>If you do not have sudo rm permission on your workstation you will be
+required to have an administrator run the script on your behalf.</p>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <p>The additional features are:</p>
 <ol class="arabic simple">
 <li><dl class="simple">
@@ -142,83 +145,6 @@ recreate all assets you need before continuing</p>
 </dl>
 </li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>At the time of writing the podman setup script implements (3) above only.
-For the moment early adopters will need to apply (1) and (2) manually.
-The script should be updated by 11/07/2022.</p>
-</div>
-</section>
-<section id="scratch-area">
-<h2>Scratch Area<a class="headerlink" href="#scratch-area" title="Permalink to this heading"></a></h2>
-<p>The most important thing to do is verify if podman is using the root of
-your scratch area. Take a look in the file
-<code class="docutils literal notranslate"><span class="pre">$HOME/.config/containers/storage.conf</span></code>. There is a field called
-<code class="docutils literal notranslate"><span class="pre">graphroot</span></code>, if this is <em>/scratch/&lt;fed_id&gt;</em> then you need to proceed with
-caution and follow the rest of this section. If it is
-<em>/scratch/&lt;fed_id&gt;/podman</em>
-then proceed to <a class="reference internal" href="#update"><span class="std std-ref">Update Settings</span></a>.</p>
-<p>This is a one off process only, in future your podman files will be safely in
-their own subfolder.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>When running podman system reset
-an error regarding removal of <code class="docutils literal notranslate"><span class="pre">/run/user/&lt;uder_id&gt;</span></code> is benign.</p>
-</div>
-<p>You have two options for proceeding:</p>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>move everything first</dt><dd><ul class="simple">
-<li><p>move all files and folders you want to keep out of /scratch/&lt;fed&gt;</p></li>
-<li><p>execute <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">system</span> <span class="pre">reset</span></code></p></li>
-<li><p>mkdir /scratch/&lt;fed_id&gt;</p></li>
-<li><p>move your files back</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>use sudo (or ask SciComp) to remove podman files from <em>/scratch/&lt;fed_id&gt;</em></dt><dd><ul class="simple">
-<li><p>sudo rm -rf vfs* libpod mounts *.lock</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ol>
-</section>
-<section id="update-settings">
-<span id="update"></span><h2>Update Settings<a class="headerlink" href="#update-settings" title="Permalink to this heading"></a></h2>
-<p>Before proceeding, clear out your old podman filesystem. This will delete
-all images, containers and volumes:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">system</span> <span class="n">reset</span>
-</pre></div>
-</div>
-<p>The next step is to update your settings with the setup script:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">podman</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>If you want to verify that the changes were applied then check the following
-files for the updates shown in $HOME/.config/containers:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">storage</span><span class="o">.</span><span class="n">conf</span>
-    <span class="p">[</span><span class="n">storage</span><span class="p">]</span>
-        <span class="n">driver</span> <span class="o">=</span> <span class="s2">&quot;overlay&quot;</span>
-        <span class="n">runroot</span> <span class="o">=</span> <span class="s2">&quot;/run/user/&lt;uder_id&gt;/podman&quot;</span>
-        <span class="n">graphroot</span> <span class="o">=</span> <span class="s2">&quot;/scratch/&lt;fed_id&gt;/podman&quot;</span>
-        <span class="p">[</span><span class="n">storage</span><span class="o">.</span><span class="n">options</span><span class="p">]</span>
-            <span class="n">mount_program</span> <span class="o">=</span> <span class="s2">&quot;/bin/fuse-overlayfs&quot;</span>
-
-<span class="n">libpod</span><span class="o">.</span><span class="n">conf</span>
-    <span class="n">runtime</span> <span class="o">=</span> <span class="s2">&quot;crun&quot;</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you are an early adopter then you will need to set driver and
-runtime yourself by editing storage.conf manually.
-(see above warning)</p>
-</div>
-<p>That’s it. You should now be able to start using podman and it should
-be fully compatible with dev-c7.</p>
 </section>
 </section>
 
