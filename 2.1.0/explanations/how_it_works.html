@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How the dev-c7 Container Works &mdash; dev-c7 2.1.0
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RHEL7 native vs dev-c7" href="differences.html" />
+    <link rel="prev" title="Updating Podman Settings" href="../how-to/podman.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+            <a href="../index.html" class="icon icon-home"> dev-c7
+            <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.1.0
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How the dev-c7 Container Works</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#podman">Podman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#containers">Containers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#container-lifetime">Container lifetime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-systems">File Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-profile">User Profile</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>How the dev-c7 Container Works</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/explanations/how_it_works.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="how-the-dev-c7-container-works">
+<h1>How the dev-c7 Container Works<a class="headerlink" href="#how-the-dev-c7-container-works" title="Permalink to this heading"></a></h1>
+<section id="podman">
+<h2>Podman<a class="headerlink" href="#podman" title="Permalink to this heading"></a></h2>
+<p>Podman is a daemonless, rootless container engine developed by RedHat,
+designed as an alternative to Docker.</p>
+<p>Using containers allows us to package up all the dependencies of an
+application and execute it in an isolated fashion.</p>
+<p>In the case of <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code> we use podman to package up everything required
+by the DLS controls developer workflow. This is essentially a set
+of system libraries and tools plus mounted shared file systems such
+as <code class="docutils literal notranslate"><span class="pre">/dls_sw</span></code> and <code class="docutils literal notranslate"><span class="pre">/home</span></code>.</p>
+</section>
+<section id="containers">
+<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this heading"></a></h2>
+<p>A quote from docker.com:</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.</p>
+</div>
+<p>An image is a layered snapshot of a file system. Images adhere to the
+<a class="reference external" href="https://opencontainers.org/release-notices/v1-0-2-image-spec/">Open Container Initiative</a>
+standard and therefore images built by Docker and Podman are interchangeable.</p>
+<p>Images are stored in a container registry such as DockerHub or GitHub Container
+Registry <a class="reference external" href="https://ghcr.io">https://ghcr.io</a>. The image for <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code> is stored alongside its source
+code here:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://ghcr.io/dls-controls/dev-c7:latest">https://ghcr.io/dls-controls/dev-c7:latest</a></p>
+</div></blockquote>
+<p>The <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> script uses <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">run</span></code> to create a container based on
+the above image. The container is an isolated execution environment with
+its own file system based upon the above image. Any changes to the
+file system are added in a layered fashion.</p>
+<p>The container’s file system changes are lost when the container is deleted.
+However with <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> we arrange for that to happen only if
+the user explicitly deletes <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code>.</p>
+</section>
+<section id="container-lifetime">
+<h2>Container lifetime<a class="headerlink" href="#container-lifetime" title="Permalink to this heading"></a></h2>
+<p>The script <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> launches a container in the background using
+podman. It then executes an interactive bash shell inside of that
+container.</p>
+<p>This means that when you exit the bash prompt the container continues to
+run in the background.</p>
+<p>Further invocations of <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> will execute further interactive bash
+shells in the same container.</p>
+<p>If the container is stopped (via <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">stop</span> <span class="pre">dev-c7</span></code> or due to a host
+reboot) then the next invocation of <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> will detect this and
+restart it.</p>
+<p>Because of this the <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code> container is not ephemeral like most containers,
+it persists changes that you make in the OS until it is explicitly deleted.</p>
+</section>
+<section id="file-systems">
+<h2>File Systems<a class="headerlink" href="#file-systems" title="Permalink to this heading"></a></h2>
+<p>The system partition in which the operating system is installed resides
+inside the container. However <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> mounts a number of host and
+shared file systems. This is how the container is made to look very
+similar to a RHEL7 workstation. The mounted file systems are as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">prod</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">prod</span>
+<span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">work</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">work</span>
+<span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">epics</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">epics</span>
+<span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">targetOS</span><span class="o">/</span><span class="n">vxWorks</span><span class="o">/</span><span class="n">Tornado</span><span class="o">-</span><span class="mf">2.2</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">targetOS</span><span class="o">/</span><span class="n">vxWorks</span><span class="o">/</span><span class="n">Tornado</span><span class="o">-</span><span class="mf">2.2</span>
+<span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">apps</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">apps</span>
+<span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">etc</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">etc</span>
+<span class="o">/</span><span class="n">scratch</span><span class="p">:</span><span class="o">/</span><span class="n">scratch</span>
+<span class="o">/</span><span class="n">home</span><span class="p">:</span><span class="o">/</span><span class="n">home</span>
+<span class="o">/</span><span class="n">tmp</span><span class="p">:</span><span class="o">/</span><span class="n">tmp</span>
+<span class="o">/</span><span class="n">dls</span><span class="o">/</span><span class="n">science</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="p">:</span><span class="o">/</span><span class="n">dls</span><span class="o">/</span><span class="n">science</span><span class="o">/</span><span class="n">users</span><span class="o">/</span>
+</pre></div>
+</div>
+</section>
+<section id="user-profile">
+<h2>User Profile<a class="headerlink" href="#user-profile" title="Permalink to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> executes <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">-l</span></code> in order to create an interactive
+shell in the container. The following features make this work:</p>
+<ul class="simple">
+<li><p>The home directories folder /home is mounted</p></li>
+<li><p>the HOME environment variable is passed into the container</p></li>
+<li><p>the user namespace is mapped into the container namespace</p></li>
+</ul>
+<p>The above points mean that bash is able to run <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> from your
+home directory under your account. Hence all the usual DLS profile
+features are loaded.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../how-to/podman.html" class="btn btn-neutral float-left" title="Updating Podman Settings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="differences.html" class="btn btn-neutral float-right" title="RHEL7 native vs dev-c7" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.1.0
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
