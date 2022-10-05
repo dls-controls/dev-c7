@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VSCode Integration &mdash; dev-c7 2.1.0-2-g8cd7b33
+  <title>VSCode Integration &mdash; dev-c7 2.1.0-4-g9a1ee9f
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -170,7 +170,11 @@ docker.</p>
 <h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h2>
 <p>To use VSCode with a developer container, first add the
 <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> folder with <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code>
-file to the root of your project:</p>
+file to the root of your project. The script has a helper to do this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">I</span>
+</pre></div>
+</div>
+<p>or you can create it manually:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">&lt;</span><span class="n">my</span> <span class="n">project</span> <span class="n">folder</span><span class="o">&gt;</span>
 <span class="n">mkdir</span> <span class="o">.</span><span class="n">devcontainer</span>
 <span class="n">cd</span> <span class="o">.</span><span class="n">devcontainer</span>

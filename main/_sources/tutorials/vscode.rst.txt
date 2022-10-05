@@ -68,7 +68,11 @@ How to Use
 
 To use VSCode with a developer container, first add the
 ``.devcontainer`` folder with ``devcontainer.json`` 
-file to the root of your project::
+file to the root of your project. The script has a helper to do this::
+
+    run-dev-c7.sh -I
+
+or you can create it manually::
 
     cd <my project folder>
     mkdir .devcontainer
