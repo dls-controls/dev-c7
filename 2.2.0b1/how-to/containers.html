@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.2.0b1
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
+    <link rel="prev" title="Bash Prompt in dev-c7" href="../tutorials/prompt.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+            <a href="../index.html" class="icon icon-home"> dev-c7
+            <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.2.0b1
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Managing Containers and Images on a Workstation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#monitoring">Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cleaning-up-space">Cleaning Up Space</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Managing Containers and Images on a Workstation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to/containers.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="managing-containers-and-images-on-a-workstation">
+<h1>Managing Containers and Images on a Workstation<a class="headerlink" href="#managing-containers-and-images-on-a-workstation" title="Permalink to this heading"></a></h1>
+<section id="definitions">
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading"></a></h2>
+<p><strong>Images</strong> are snapshots of a filesystem used to bootstrap a container.</p>
+<p><strong>Containers</strong> are isolated execution environments with their file system based
+upon an Image.</p>
+</section>
+<section id="monitoring">
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this heading"></a></h2>
+<p>You can see which <strong>Containers</strong> are running on your system with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-a</span></code> means it will also show stopped containers.</p>
+<p>You can see what <strong>Images</strong> are cached on your system with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">images</span>
+</pre></div>
+</div>
+<p>Images are usually cached from a container registry like ghcr.io. They can
+usually be deleted without any consequence except waiting for the download
+next time you launch a container that uses them.</p>
+</section>
+<section id="cleaning-up-space">
+<h2>Cleaning Up Space<a class="headerlink" href="#cleaning-up-space" title="Permalink to this heading"></a></h2>
+<p>The container and image cache is stored in /scratch/&lt;fed_id&gt;/podman. If you
+are short on space you can use the following.</p>
+<p>To remove temporary images and stopped containers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">system</span> <span class="n">prune</span>
+</pre></div>
+</div>
+<p>To remove individual images:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">rmi</span> <span class="n">IMAGE_ID</span> <span class="c1"># from third column of podman images</span>
+
+<span class="n">OR</span> <span class="o">...</span>
+
+<span class="n">podman</span> <span class="n">rmi</span> <span class="n">REPOSITORY</span><span class="p">:</span><span class="n">TAG</span> <span class="c1"># 1st , 2nd columns of podman images</span>
+</pre></div>
+</div>
+<p>To remove all images with wildcard on REPOSITORY:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>podman rmi $(podman images --filter=reference=&#39;*PATTERN*&#39; -q)
+
+# PATTERN matches the REPOSITORY column
+</pre></div>
+</div>
+</section>
+</section>
+<section id="defining-a-container-image">
+<span id="dockerfile"></span><h1>Defining a Container Image<a class="headerlink" href="#defining-a-container-image" title="Permalink to this heading"></a></h1>
+<p>The dev-c7 container image is built from the container context folder
+<code class="docutils literal notranslate"><span class="pre">dev-c7/docker</span></code>.
+The context contains a Dockerfile which details the steps to build the
+container image.</p>
+<p>To experiment with making additions to the dev-c7 project, first clone
+the project and do a test build of the container:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dls</span><span class="o">-</span><span class="n">controls</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
+<span class="n">cd</span> <span class="n">dev</span><span class="o">-</span><span class="n">c7</span>
+<span class="o">./</span><span class="n">build</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">build-dev-c7.sh</span></code> will create a container image with the tag
+<code class="docutils literal notranslate"><span class="pre">ghcr.io/dls-controls/dev-c7</span></code>. This is the same tag that <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code>
+uses so it will launch a container based on your newly built image.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You will likely already have a dev-c7 container running and you must delete
+that before your new one will launch. Otherwise the launch script will
+just open a new bash session in the existing container.
+To do this see <a class="reference internal" href="../tutorials/continue.html#deleting"><span class="std std-ref">Deleting the container</span></a>.</p>
+</div>
+<p>Now you are ready to make any changes you wish to the Dockerfile and add
+any additional files to the context (i.e. in the <code class="docutils literal notranslate"><span class="pre">dev-c7/docker</span></code> folder).</p>
+<p>Below is the current Dockerfile, read on for an explanation of the
+commands used.</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="c"># Dockerfile for getting DLS RHEL7 dev environment working in a container</span>
+<span class="c"># hosted on RHEL8</span>
+<span class="c">#</span>
+<span class="c"># This is a stopgap so that we can use effort to promote the</span>
+<span class="c"># kubernetes model https://github.com/dls-controls instead of spending</span>
+<span class="c"># effort in rebuilding our toolchain for RHEL8</span>
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">centos:7</span>
+
+<span class="c"># environment</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8
+<span class="k">ENV</span><span class="w"> </span><span class="nv">LC_ALL</span><span class="o">=</span>en_US.UTF-8
+<span class="k">ENV</span><span class="w"> </span><span class="nv">LC_CTYPE</span><span class="o">=</span>en_US.UTF-8
+<span class="k">ENV</span><span class="w"> </span><span class="nv">MODULEPATH</span><span class="o">=</span>/etc/scl/modulefiles:/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/dls_sw/apps/Modules/modulefiles:/dls_sw/etc/modulefiles:/home/hgv27681/privatemodules:/dls_sw/prod/tools/RHEL8-x86_64/defaults/modulefiles
+
+<span class="c"># ENV QT_X11_NO_MITSHM=1</span>
+
+<span class="k">RUN</span><span class="w"> </span>yum update -y <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # dev tools and libraries
+    yum groupinstall -y <span class="s2">&quot;Development Tools&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    yum install -y glibc.i686 redhat-lsb-core libusbx net-snmp-libs environment-modules git2u net-tools screen cmake lapack-devel readline-devel pcre-devel boost-devel libpcap-devel numactl-libs vim dbus-x11 bind-utils libssh2-devel xorg-x11-server-Xvfb <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # edm dependencies
+    yum install -y epel-release <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    yum install -y giflib-devel libXmu-devel libpng-devel libXtst-devel zlib-devel xorg-x11-proto-devel motif-devel libX11-devel libXp-devel libXpm-devel libtirpc-devel <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # areaDetector dependencies
+    yum install -y libxml2-devel libjpeg-turbo-devel libtiff-devel <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # Odin dependencies
+    yum install -y hdf5-devel zeromq-devel librdkafka-devel <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # QT4 dependencies
+    yum install -y pyqt4-devel PackageKit-gtk3-module libcanberra-gtk2 xcb-util xcb-util-devel libxcb.x86_64 libxkbcommon-x11 <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # allow all users inside the container to sudo
+    yum -y install sudo <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # dls-remote-desktop-support
+    yum install -y xfreerdp zenity <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # useful tools
+    yum install -y meld tk dejavu-sans-mono-fonts gnome-terminal xterm xmessage evince eog firefox java openldap-clients <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    yum clean all <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    # nasty hack to avoid overlay filesystem problems with --userns<span class="o">=</span>keep-id
+    rm -fr /var/lib/yum/yumdb/*
+
+<span class="c"># git 2.23</span>
+<span class="k">RUN</span><span class="w"> </span>yum -y install wget  <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">export</span> <span class="nv">VER</span><span class="o">=</span><span class="s2">&quot;2.32.0&quot;</span> <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    wget https://github.com/git/git/archive/v<span class="si">${</span><span class="nv">VER</span><span class="si">}</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    tar -xvf v<span class="si">${</span><span class="nv">VER</span><span class="si">}</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    rm -f v<span class="si">${</span><span class="nv">VER</span><span class="si">}</span>.tar.gz <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    <span class="nb">cd</span> git-* <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make configure <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    ./configure --prefix<span class="o">=</span>/usr <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make install <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    make clean
+
+
+<span class="k">COPY</span><span class="w"> </span>/sudoers /etc/sudoers
+
+<span class="c"># Workaround to ensure all locales are available</span>
+<span class="k">RUN</span><span class="w"> </span>sed -i <span class="s2">&quot;/override_install_langs=en_US/d&quot;</span> /etc/yum.conf
+<span class="k">RUN</span><span class="w"> </span>yum reinstall -y glibc-common
+
+<span class="c"># set container time to BST</span>
+<span class="k">RUN</span><span class="w"> </span>ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+</pre></div>
+</div>
+<p>The base image is selected with the <code class="docutils literal notranslate"><span class="pre">FROM</span></code> command this defines what the
+container file system looks like initially. Every command in the Dockerfile
+then adds a layer of change to the container image.</p>
+<p>The majority of the Dockerfile for <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code> is using yum install to get
+packages installed into the OS. Yum is executed via the <code class="docutils literal notranslate"><span class="pre">RUN</span></code> command.
+Note that the <code class="docutils literal notranslate"><span class="pre">RUN</span></code> command takes a single shell command line input.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is
+common in Dockerfiles to use <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span> <span class="pre">\</span></code> to string multiple commands together
+in a single <code class="docutils literal notranslate"><span class="pre">RUN</span></code>. The reason to do this is to minimize the number
+of layers
+in the container image. In particular, if you want to clean up temporary
+files, it must be done in the same layer they were created or it will not
+reduce the size of the resulting image (because there is a layer with the
+temp files and then another layer that removes them).</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">RUN</span></code> command may execute any command that is available inside the
+container. For example the above uses a single <code class="docutils literal notranslate"><span class="pre">RUN</span></code> to get the source for
+a new version of git and compile it.</p>
+<p>Another command in this Dockerfile is <code class="docutils literal notranslate"><span class="pre">ENV</span></code> which simply sets an environment
+variable for the processes the container launches.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">COPY</span></code> command allows you to supply files from the context
+(<code class="docutils literal notranslate"><span class="pre">dev-c7/docker</span></code> folder in this case).
+Note that the path / is the root of the context. You can only
+copy files from inside the context, thus the context folder holds the entire
+definition of the image generated.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tutorials/prompt.html" class="btn btn-neutral float-left" title="Bash Prompt in dev-c7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.2.0b1
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
