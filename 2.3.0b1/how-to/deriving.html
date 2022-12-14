@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Derive your own container image &mdash; dev-c7 2.3.0b1
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Updating Podman Settings" href="podman.html" />
+    <link rel="prev" title="Troubleshooting" href="troubleshooting.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+            <a href="../index.html" class="icon icon-home"> dev-c7
+            <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0b1
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Derive your own container image</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to/deriving.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="derive-your-own-container-image">
+<span id="deriving"></span><h1>Derive your own container image<a class="headerlink" href="#derive-your-own-container-image" title="Permalink to this heading"></a></h1>
+<p>Each developer is free to derive their own container image if they have
+specific requirements e.g.</p>
+<ul class="simple">
+<li><p>Additional system libraries</p></li>
+<li><p>Additional command line or GUI tools</p></li>
+<li><p>Any other OS configuration that they prefer</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the changes you need are likely to be useful to all developers then
+you should consider contributing to the base image for dev-c7.
+See <a class="reference internal" href="../reference/contributing.html"><span class="doc">Contributing</span></a></p>
+</div>
+<p>To make your own derived container.</p>
+<ul class="simple">
+<li><p>Create a folder (this is your container context folder)</p></li>
+<li><p>Make a Dockerfile in that folder</p></li>
+<li><p>Drop in any files that you want to copy into the container</p></li>
+<li><p>cd into the folder</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">build</span> <span class="pre">--tag</span> <span class="pre">my-dev-c7</span> <span class="pre">.</span></code></p></li>
+<li><p>run-dev-c7.sh -i my-dev-c7</p></li>
+</ul>
+<p>Below is an example Dockerfile derived from dev-c7 that adds a package with
+yum, sets an environment variable and copies a script into /usr/bin. Note
+that the build is running as root inside the container so it is allowed
+to write to a system folder.</p>
+<div class="highlight-docker notranslate"><div class="highlight"><pre><span></span><span class="k">FROM</span><span class="w"> </span><span class="s">ghcr.io/dls-controls/dev-c7:latest</span>
+
+<span class="c"># dev tools and libraries</span>
+<span class="k">RUN</span><span class="w"> </span>yum update -y <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    yum install -y my-package
+
+<span class="k">ENV</span><span class="w"> </span><span class="nv">MY_VAR</span><span class="o">=</span><span class="s2">&quot;useful info&quot;</span>
+
+<span class="k">COPY</span><span class="w"> </span>/my-useful-file.sh /usr/bin
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="troubleshooting.html" class="btn btn-neutral float-left" title="Troubleshooting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="podman.html" class="btn btn-neutral float-right" title="Updating Podman Settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.3.0b1
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>

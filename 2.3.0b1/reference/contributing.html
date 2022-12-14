@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contributing &mdash; dev-c7 2.3.0b1
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Purpose of the dev-c7 Container" href="../explanations/why_dev_c7.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+            <a href="../index.html" class="icon icon-home"> dev-c7
+            <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.0b1
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#testing">Testing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-features-to-the-container-image">Adding Features to the Container Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-container-image">Make Container Image</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-process">Release Process</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Contributing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/contributing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="contributing">
+<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
+<p>Contributions and issues are most welcome! All issues and pull requests are
+handled through <a class="reference external" href="https://github.com/dls-controls/dev-c7/issues">GitHub</a>. Also, please check for any existing issues before
+filing a new one. If you have a great idea but it involves big changes, please
+file a ticket before making a pull request! We want to make sure you don’t spend
+your time coding something that might not fit the scope of the project.</p>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h2>
+<section id="adding-features-to-the-container-image">
+<h3>Adding Features to the Container Image<a class="headerlink" href="#adding-features-to-the-container-image" title="Permalink to this heading"></a></h3>
+<p>See <a class="reference internal" href="../how-to/containers.html#dockerfile"><span class="std std-ref">Defining a Container Image</span></a></p>
+</section>
+<section id="make-container-image">
+<h3>Make Container Image<a class="headerlink" href="#make-container-image" title="Permalink to this heading"></a></h3>
+<p>The image can be made locally with the script <code class="docutils literal notranslate"><span class="pre">build-dec-c7.sh</span></code>. The
+resulting image will be placed in the local cache with the tag
+<code class="docutils literal notranslate"><span class="pre">ghcr.io/dls-controls/dev-c7:latest</span></code>.</p>
+<p>Since this is the default tag that <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> uses you can now use it
+launch and try out the new container image.</p>
+<p>At present there are no tests to prove that the resulting image works. TBA.</p>
+</section>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
+<p>In order to build the documentation you will require a python virtual
+environment. Set up as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd dev-c7
+$ virtualenv .venv
+$ source .venv
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>Documentation is contained in the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory.</p>
+<p>Docs follow the underlining convention:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Headling</span> <span class="mi">1</span> <span class="p">(</span><span class="n">page</span> <span class="n">title</span><span class="p">)</span>
+<span class="o">=======================</span>
+
+<span class="n">Heading</span> <span class="mi">2</span>
+<span class="o">---------</span>
+
+<span class="n">Heading</span> <span class="mi">3</span>
+<span class="o">~~~~~~~~~</span>
+</pre></div>
+</div>
+<p>You can build the docs from the project directory by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ docs/make_docs.sh
+$ firefox build/html/index.html
+</pre></div>
+</div>
+</section>
+<section id="release-process">
+<h2>Release Process<a class="headerlink" href="#release-process" title="Permalink to this heading"></a></h2>
+<p>To make a new release, please follow this checklist:</p>
+<ul class="simple">
+<li><p>make changes on a branch and test locally with <code class="docutils literal notranslate"><span class="pre">build-dev-c7.sh</span></code></p></li>
+<li><p>add any required updates to the docs and test with <code class="docutils literal notranslate"><span class="pre">docs/make_docs.sh</span></code></p></li>
+<li><p>push the changes to GitHub</p></li>
+<li><p>Go to <a class="reference external" href="https://github.com/dls-controls/dev-c7/pulls">https://github.com/dls-controls/dev-c7/pulls</a> and create a PR to main</p></li>
+<li><p>GitHub actions will make an image to verify that it builds</p></li>
+<li><p>Await approval for the PR</p></li>
+<li><p>Choose a new PEP440 compliant release number</p></li>
+<li><p>Go to <a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">release</a> and create a new release with the new version</p></li>
+<li><p>Check and edit for clarity the autogenerated GitHub <a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">release</a></p></li>
+<li><p>Submit the release</p></li>
+<li><p>GitHub Actions will publish the image to ghcr.io and the docs to GitHub Pages</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../explanations/why_dev_c7.html" class="btn btn-neutral float-left" title="Purpose of the dev-c7 Container" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.3.0b1
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
