@@ -31,11 +31,18 @@ Finally, launch an instance of the container by typing::
 
     c7
 
+That's it. For further options see `continue`
+
+
+.. note::
+    if don't have a $HOME/bin folder then you will need to do
+    ``mkdir $HOME/bin``. It will automatically be added to your PATH in
+    any new shells, but the current shell won't see it.
+
 .. note::
     For the first invocation of an updated version of the container there
     will be a 30 second delay while the filesystem user id namespace mapping
     is cached. This will happen after the image is pulled from the registry.
-
 
 How to Work
 -----------

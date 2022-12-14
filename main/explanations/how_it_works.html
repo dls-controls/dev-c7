@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How the dev-c7 Container Works &mdash; dev-c7 2.3.0b1-3-ge59d220
+  <title>How the dev-c7 Container Works &mdash; dev-c7 2.3.0b1-5-g17a6243
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -134,25 +134,25 @@ code here:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://ghcr.io/dls-controls/dev-c7:latest">https://ghcr.io/dls-controls/dev-c7:latest</a></p>
 </div></blockquote>
-<p>The <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> script uses <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">run</span></code> to create a container based on
+<p>The <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> script uses <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">run</span></code> to create a container based on
 the above image. The container is an isolated execution environment with
 its own file system based upon the above image. Any changes to the
 file system are added in a layered fashion.</p>
 <p>The container’s file system changes are lost when the container is deleted.
-However with <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> we arrange for that to happen only if
+However with <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> we arrange for that to happen only if
 the user explicitly deletes <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code>.</p>
 </section>
 <section id="container-lifetime">
 <h2>Container lifetime<a class="headerlink" href="#container-lifetime" title="Permalink to this heading"></a></h2>
-<p>The script <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> launches a container in the background using
+<p>The script <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> launches a container in the background using
 podman. It then executes an interactive bash shell inside of that
 container.</p>
 <p>This means that when you exit the bash prompt the container continues to
 run in the background.</p>
-<p>Further invocations of <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> will execute further interactive bash
+<p>Further invocations of <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> will execute further interactive bash
 shells in the same container.</p>
 <p>If the container is stopped (via <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">stop</span> <span class="pre">dev-c7</span></code> or due to a host
-reboot) then the next invocation of <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> will detect this and
+reboot) then the next invocation of <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> will detect this and
 restart it.</p>
 <p>Because of this the <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code> container is not ephemeral like most containers,
 it persists changes that you make in the OS until it is explicitly deleted.</p>
@@ -160,7 +160,7 @@ it persists changes that you make in the OS until it is explicitly deleted.</p>
 <section id="file-systems">
 <h2>File Systems<a class="headerlink" href="#file-systems" title="Permalink to this heading"></a></h2>
 <p>The system partition in which the operating system is installed resides
-inside the container. However <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> mounts a number of host and
+inside the container. However <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> mounts a number of host and
 shared file systems. This is how the container is made to look very
 similar to a RHEL7 workstation. The mounted file systems are as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">prod</span><span class="p">:</span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">prod</span>
@@ -178,7 +178,7 @@ similar to a RHEL7 workstation. The mounted file systems are as follows:</p>
 </section>
 <section id="user-profile">
 <h2>User Profile<a class="headerlink" href="#user-profile" title="Permalink to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> executes <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">-l</span></code> in order to create an interactive
+<p><code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> executes <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">-l</span></code> in order to create an interactive
 shell in the container. The following features make this work:</p>
 <ul class="simple">
 <li><p>The home directories folder /home is mounted</p></li>

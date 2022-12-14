@@ -30,16 +30,16 @@ of ``[C7]``.
 Change the hostname
 ~~~~~~~~~~~~~~~~~~~
 
-Typically the PS1 prompt shows you which host you are on. You can change 
+Typically the PS1 prompt shows you which host you are on. You can change
 the name of the host inside the container to give you an indicator that
 you are in the developer container.
 
-When using the launch script for initial creation of the container you 
+When using the launch script for initial creation of the container you
 can pass a hostname of your choice as follows.
 
 .. code-block:: bash
-    
-    run-dev-c7.sh -s my-hostname
+
+    c7.sh -s my-hostname
 
 .. warning::
 

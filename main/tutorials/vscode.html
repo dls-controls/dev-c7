@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VSCode Integration &mdash; dev-c7 2.3.0b1-3-ge59d220
+  <title>VSCode Integration &mdash; dev-c7 2.3.0b1-5-g17a6243
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -171,7 +171,7 @@ docker.</p>
 <p>To use VSCode with a developer container, first add the
 <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> folder with <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code>
 file to the root of your project. The script has a helper to do this:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span><span class="o">-</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">I</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">I</span>
 </pre></div>
 </div>
 <p>or you can create it manually:</p>
@@ -197,7 +197,7 @@ See <a class="reference external" href="https://github.com/dls-controls/dev-c7/r
 </section>
 <section id="container-lifetime">
 <h2>Container Lifetime<a class="headerlink" href="#container-lifetime" title="Permalink to this heading"></a></h2>
-<p>Like the <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> script, the container will be kept alive. If you
+<p>Like the <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> script, the container will be kept alive. If you
 exit and re-enter VSCode you will be reconnected to the same container.</p>
 <p>When you run <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">ps</span></code> you will see the container is running and is named
 something like this:</p>
@@ -217,7 +217,7 @@ accessed by clicking the icon in the very bottom left of the VSCode window.</p>
 rebuild the container
 and reopen the session in the new container.</p>
 <p>Note that this means that the containers used by VSCode and those used
-by <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> are distinct. So if you install something into one it will
+by <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> are distinct. So if you install something into one it will
 not be seen in the other.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
