@@ -66,10 +66,10 @@ the project and do a test build of the container::
 
     git clone https://dls-controls.github.io/dev-c7/main/index.html
     cd dev-c7
-    ./build-dev-c7.sh
+    ./build-dev-c7
 
-``build-dev-c7.sh`` will create a container image with the tag
-``ghcr.io/dls-controls/dev-c7``. This is the same tag that ``c7.sh``
+``build-dev-c7`` will create a container image with the tag
+``ghcr.io/dls-controls/dev-c7``. This is the same tag that ``c7``
 uses so it will launch a container based on your newly built image.
 
 .. note::

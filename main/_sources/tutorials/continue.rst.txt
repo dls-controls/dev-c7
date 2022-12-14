@@ -33,13 +33,19 @@ To see optional parameters, run the launch script with -h::
 Versions
 --------
 
-The default behaviour is that ``c7.sh`` will use the version matching
-the version of the script you downloaded.
+The default behaviour is that ``c7`` will use the latest version in the
+registry on first invocation. When it launches and attaches to the
+container it will report the version you are currently using.
 
-If you would like to roll back to a previous version or try a newer version
+``c7`` will not pick up new releases of the
+container image unless you explicitly ask it to pull the latest again::
+
+    c7 -dp
+
+If you would like to roll back to a previous version
 of the container then use the -v option::
 
-    c7.sh -v 2.0.0-rc1
+    c7 -dv 2.2.0
 
 To check what versions of the image are available, take a look at the
 github container registry for this project
@@ -83,7 +89,7 @@ When you next launch the container, it will be started with its file system
 initialized back to the default state specified in the image at
 ghcr.io/dls-controls/dev-c7:latest.
 
-You can also ask ``c7.sh`` to perform the delete for you with ``-d``.
+You can also ask ``c7`` to perform the delete for you with ``-d``.
 
 .. warning::
     Any changes you have made to the container itself will be lost when you
@@ -92,18 +98,18 @@ You can also ask ``c7.sh`` to perform the delete for you with ``-d``.
     See `../explanations/how_it_works` for more detail. To permanently
     persist changes see `deriving`.
 
-Upgrade to a new dev-c7 version
--------------------------------
+Upgrade to a new c7 launcher version
+------------------------------------
 
-It best to update the script and the container image together as follows::
+If the script has acquired new features you may want to update as follows::
 
 
     cd $HOME/bin
-    rm c7.sh
-    wget -nc https://github.com/dls-controls/dev-c7/releases/download/2.0.0/c7.sh
-    chmod c7.sh
+    rm c7
+    wget -nc https://raw.githubusercontent.com/dls-controls/dev-c7/main/c7
+    chmod +x c7
 
-    c7.sh -d # -d deletes previous container to start afresh
+    c7 -d # -d deletes previous container to start afresh
 
 Also update your devcontainer.json to match for projects you want to also
 upgrade.

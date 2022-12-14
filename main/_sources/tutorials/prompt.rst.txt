@@ -39,7 +39,7 @@ can pass a hostname of your choice as follows.
 
 .. code-block:: bash
 
-    c7.sh -s my-hostname
+    c7 -s my-hostname
 
 .. warning::
 

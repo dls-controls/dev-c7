@@ -35,31 +35,31 @@ code here:
 
     https://ghcr.io/dls-controls/dev-c7:latest
 
-The ``c7.sh`` script uses ``podman run`` to create a container based on
+The ``c7`` script uses ``podman run`` to create a container based on
 the above image. The container is an isolated execution environment with
 its own file system based upon the above image. Any changes to the
 file system are added in a layered fashion.
 
 The container's file system changes are lost when the container is deleted.
-However with ``c7.sh`` we arrange for that to happen only if
+However with ``c7`` we arrange for that to happen only if
 the user explicitly deletes ``dev-c7``.
 
 
 Container lifetime
 ------------------
 
-The script ``c7.sh`` launches a container in the background using
+The script ``c7`` launches a container in the background using
 podman. It then executes an interactive bash shell inside of that
 container.
 
 This means that when you exit the bash prompt the container continues to
 run in the background.
 
-Further invocations of ``c7.sh`` will execute further interactive bash
+Further invocations of ``c7`` will execute further interactive bash
 shells in the same container.
 
 If the container is stopped (via ``podman stop dev-c7`` or due to a host
-reboot) then the next invocation of ``c7.sh`` will detect this and
+reboot) then the next invocation of ``c7`` will detect this and
 restart it.
 
 Because of this the ``dev-c7`` container is not ephemeral like most containers,
@@ -69,7 +69,7 @@ File Systems
 ------------
 
 The system partition in which the operating system is installed resides
-inside the container. However ``c7.sh`` mounts a number of host and
+inside the container. However ``c7`` mounts a number of host and
 shared file systems. This is how the container is made to look very
 similar to a RHEL7 workstation. The mounted file systems are as follows::
 
@@ -87,7 +87,7 @@ similar to a RHEL7 workstation. The mounted file systems are as follows::
 User Profile
 ------------
 
-``c7.sh`` executes ``bash -l`` in order to create an interactive
+``c7`` executes ``bash -l`` in order to create an interactive
 shell in the container. The following features make this work:
 
 - The home directories folder /home is mounted

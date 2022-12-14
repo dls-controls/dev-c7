@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; dev-c7 2.3.0b1-5-g17a6243
+  <title>Contributing &mdash; dev-c7 2.3.0b2-3-g3b07e98
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -121,10 +121,10 @@ your time coding something that might not fit the scope of the project.</p>
 </section>
 <section id="make-container-image">
 <h3>Make Container Image<a class="headerlink" href="#make-container-image" title="Permalink to this heading"></a></h3>
-<p>The image can be made locally with the script <code class="docutils literal notranslate"><span class="pre">build-dec-c7.sh</span></code>. The
+<p>The image can be made locally with the script <code class="docutils literal notranslate"><span class="pre">build-dec-c7</span></code>. The
 resulting image will be placed in the local cache with the tag
 <code class="docutils literal notranslate"><span class="pre">ghcr.io/dls-controls/dev-c7:latest</span></code>.</p>
-<p>Since this is the default tag that <code class="docutils literal notranslate"><span class="pre">run-dev-c7.sh</span></code> uses you can now use it
+<p>Since this is the default tag that <code class="docutils literal notranslate"><span class="pre">run-dev-c7</span></code> uses you can now use it
 launch and try out the new container image.</p>
 <p>At present there are no tests to prove that the resulting image works. TBA.</p>
 </section>
@@ -161,7 +161,7 @@ $ firefox build/html/index.html
 <h2>Release Process<a class="headerlink" href="#release-process" title="Permalink to this heading"></a></h2>
 <p>To make a new release, please follow this checklist:</p>
 <ul class="simple">
-<li><p>make changes on a branch and test locally with <code class="docutils literal notranslate"><span class="pre">build-dev-c7.sh</span></code></p></li>
+<li><p>make changes on a branch and test locally with <code class="docutils literal notranslate"><span class="pre">build-dev-c7</span></code></p></li>
 <li><p>add any required updates to the docs and test with <code class="docutils literal notranslate"><span class="pre">docs/make_docs.sh</span></code></p></li>
 <li><p>push the changes to GitHub</p></li>
 <li><p>Go to <a class="reference external" href="https://github.com/dls-controls/dev-c7/pulls">https://github.com/dls-controls/dev-c7/pulls</a> and create a PR to main</p></li>

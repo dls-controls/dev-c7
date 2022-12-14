@@ -22,7 +22,7 @@ To make your own derived container.
 - Drop in any files that you want to copy into the container
 - cd into the folder
 - ``podman build --tag my-dev-c7 .``
-- c7.sh -i my-dev-c7
+- c7 -i my-dev-c7
 
 Below is an example Dockerfile derived from dev-c7 that adds a package with
 yum, sets an environment variable and copies a script into /usr/bin. Note

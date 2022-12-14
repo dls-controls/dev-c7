@@ -70,7 +70,7 @@ To use VSCode with a developer container, first add the
 ``.devcontainer`` folder with ``devcontainer.json``
 file to the root of your project. The script has a helper to do this::
 
-    c7.sh -I
+    c7 -I
 
 or you can create it manually::
 
@@ -100,7 +100,7 @@ See https://github.com/dls-controls/dev-c7/releases for the latest updates.
 Container Lifetime
 ------------------
 
-Like the ``c7.sh`` script, the container will be kept alive. If you
+Like the ``c7`` script, the container will be kept alive. If you
 exit and re-enter VSCode you will be reconnected to the same container.
 
 When you run ``podman ps`` you will see the container is running and is named
@@ -122,7 +122,7 @@ rebuild the container
 and reopen the session in the new container.
 
 Note that this means that the containers used by VSCode and those used
-by ``c7.sh`` are distinct. So if you install something into one it will
+by ``c7`` are distinct. So if you install something into one it will
 not be seen in the other.
 
 .. note::

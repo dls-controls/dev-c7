@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>More Features &mdash; dev-c7 2.3.0b1-5-g17a6243
+  <title>More Features &mdash; dev-c7 2.3.0b2-3-g3b07e98
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -55,7 +55,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#versions">Versions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lifetime">Lifetime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#deleting-the-container">Deleting the container</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#upgrade-to-a-new-dev-c7-version">Upgrade to a new dev-c7 version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#upgrade-to-a-new-c7-launcher-version">Upgrade to a new c7 launcher version</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="vscode.html">VSCode Integration</a></li>
@@ -137,11 +137,17 @@ Options:
 </section>
 <section id="versions">
 <h2>Versions<a class="headerlink" href="#versions" title="Permalink to this heading"></a></h2>
-<p>The default behaviour is that <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> will use the version matching
-the version of the script you downloaded.</p>
-<p>If you would like to roll back to a previous version or try a newer version
+<p>The default behaviour is that <code class="docutils literal notranslate"><span class="pre">c7</span></code> will use the latest version in the
+registry on first invocation. When it launches and attaches to the
+container it will report the version you are currently using.</p>
+<p><code class="docutils literal notranslate"><span class="pre">c7</span></code> will not pick up new releases of the
+container image unless you explicitly ask it to pull the latest again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span> <span class="o">-</span><span class="n">dp</span>
+</pre></div>
+</div>
+<p>If you would like to roll back to a previous version
 of the container then use the -v option:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span><span class="o">.</span><span class="n">sh</span> <span class="o">-</span><span class="n">v</span> <span class="mf">2.0.0</span><span class="o">-</span><span class="n">rc1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span> <span class="o">-</span><span class="n">dv</span> <span class="mf">2.2.0</span>
 </pre></div>
 </div>
 <p>To check what versions of the image are available, take a look at the
@@ -180,7 +186,7 @@ dev-c7 shells and any GUI apps launched from them will be closed:</p>
 <p>When you next launch the container, it will be started with its file system
 initialized back to the default state specified in the image at
 ghcr.io/dls-controls/dev-c7:latest.</p>
-<p>You can also ask <code class="docutils literal notranslate"><span class="pre">c7.sh</span></code> to perform the delete for you with <code class="docutils literal notranslate"><span class="pre">-d</span></code>.</p>
+<p>You can also ask <code class="docutils literal notranslate"><span class="pre">c7</span></code> to perform the delete for you with <code class="docutils literal notranslate"><span class="pre">-d</span></code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Any changes you have made to the container itself will be lost when you
@@ -190,15 +196,15 @@ See <a class="reference internal" href="../explanations/how_it_works.html"><span
 persist changes see <a class="reference internal" href="../how-to/deriving.html#deriving"><span class="std std-ref">Derive your own container image</span></a>.</p>
 </div>
 </section>
-<section id="upgrade-to-a-new-dev-c7-version">
-<h2>Upgrade to a new dev-c7 version<a class="headerlink" href="#upgrade-to-a-new-dev-c7-version" title="Permalink to this heading"></a></h2>
-<p>It best to update the script and the container image together as follows:</p>
+<section id="upgrade-to-a-new-c7-launcher-version">
+<h2>Upgrade to a new c7 launcher version<a class="headerlink" href="#upgrade-to-a-new-c7-launcher-version" title="Permalink to this heading"></a></h2>
+<p>If the script has acquired new features you may want to update as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/bin
-rm c7.sh
-wget -nc https://github.com/dls-controls/dev-c7/releases/download/2.0.0/c7.sh
-chmod c7.sh
+rm c7
+wget -nc https://raw.githubusercontent.com/dls-controls/dev-c7/main/c7
+chmod +x c7
 
-c7.sh -d # -d deletes previous container to start afresh
+c7 -d # -d deletes previous container to start afresh
 </pre></div>
 </div>
 <p>Also update your devcontainer.json to match for projects you want to also

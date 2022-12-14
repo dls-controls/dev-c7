@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Derive your own container image &mdash; dev-c7 2.3.0b1-5-g17a6243
+  <title>Derive your own container image &mdash; dev-c7 2.3.0b2-3-g3b07e98
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -120,7 +120,7 @@ See <a class="reference internal" href="../reference/contributing.html"><span cl
 <li><p>Drop in any files that you want to copy into the container</p></li>
 <li><p>cd into the folder</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">build</span> <span class="pre">--tag</span> <span class="pre">my-dev-c7</span> <span class="pre">.</span></code></p></li>
-<li><p>c7.sh -i my-dev-c7</p></li>
+<li><p>c7 -i my-dev-c7</p></li>
 </ul>
 <p>Below is an example Dockerfile derived from dev-c7 that adds a package with
 yum, sets an environment variable and copies a script into /usr/bin. Note

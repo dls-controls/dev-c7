@@ -60,7 +60,7 @@ No Services
 -----------
 
 By default a container runs a single process (of id 1) and terminates when
-that process terminates. ``c7.sh`` launches a background process
+that process terminates. ``c7`` launches a background process
 that does nothing as process 1 and
 then executes any number of interactive shells inside of it.
 
