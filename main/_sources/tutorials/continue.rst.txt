@@ -33,7 +33,7 @@ To see optional parameters, run the launch script with -h::
 Versions
 --------
 
-The default behaviour is that ``c7`` will use the latest version in the
+The default behaviour is that ``c7`` will use the latest container version in the
 registry on first invocation. When it launches and attaches to the
 container it will report the version you are currently using.
 

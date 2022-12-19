@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0b2-3-g3b07e98
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-9-g3bf609b
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -208,12 +208,10 @@ commands used.</p>
     hdf5-devel zeromq-devel librdkafka-devel <span class="se">\</span>
     # QT4 dependencies
     pyqt4-devel PackageKit-gtk3-module libcanberra-gtk2 mesa-dri-drivers.x86_64 xcb-util xcb-util-devel libxcb.x86_64 libxkbcommon-x11 <span class="se">\</span>
-    # allow all users inside the container to sudo
-    sudo <span class="se">\</span>
     # dls-remote-desktop-support
     xfreerdp zenity <span class="se">\</span>
     # useful tools
-    meld tk dejavu-sans-mono-fonts gnome-terminal xterm xmessage evince eog firefox java openldap-clients <span class="o">&amp;&amp;</span> <span class="se">\</span>
+    sudo meld tk dejavu-sans-mono-fonts gnome-terminal xterm xmessage evince eog firefox java openldap-clients <span class="o">&amp;&amp;</span> <span class="se">\</span>
     # clean up caches
     yum clean all <span class="o">&amp;&amp;</span> <span class="se">\</span>
     # nasty hack to avoid overlay filesystem problems with --userns<span class="o">=</span>keep-id
