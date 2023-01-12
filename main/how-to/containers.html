@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-11-gb3cf319
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-13-g41a72ce
  documentation</title>
   
 
@@ -300,6 +300,8 @@ commands used.</p>
 <span class="w">    </span>xfreerdp<span class="w"> </span>zenity<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>useful<span class="w"> </span>tools
 <span class="w">    </span>sudo<span class="w"> </span>meld<span class="w"> </span>tk<span class="w"> </span>dejavu-sans-mono-fonts<span class="w"> </span>gnome-terminal<span class="w"> </span>xterm<span class="w"> </span>xmessage<span class="w"> </span>evince<span class="w"> </span>eog<span class="w"> </span>firefox<span class="w"> </span>java<span class="w"> </span>openldap-clients<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>These<span class="w"> </span>packages<span class="w"> </span>are<span class="w"> </span>not<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>the<span class="w"> </span>initial<span class="w"> </span>install<span class="w"> </span>so<span class="w"> </span>try<span class="w"> </span>again
+<span class="w">    </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>zeromq-devel<span class="w"> </span>git2u<span class="w"> </span>meld<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>clean<span class="w"> </span>up<span class="w"> </span>caches
 <span class="w">    </span>yum<span class="w"> </span>clean<span class="w"> </span>all<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>#<span class="w"> </span>nasty<span class="w"> </span>hack<span class="w"> </span>to<span class="w"> </span>avoid<span class="w"> </span>overlay<span class="w"> </span>filesystem<span class="w"> </span>problems<span class="w"> </span>with<span class="w"> </span>--userns<span class="o">=</span>keep-id
