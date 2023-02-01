@@ -8,7 +8,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-17-g4512a4c
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-19-g0ca79e2
  documentation</title>
   
 
@@ -309,11 +309,6 @@ commands used.</p>
 <span class="w">    </span>#<span class="w"> </span>https://github.com/containers/fuse-overlayfs/pull/381
 <span class="w">    </span>rm<span class="w"> </span>-fr<span class="w"> </span>/var/lib/yum/yumdb/*
 
-<span class="c"># latest git from the endpoint repo https://computingforgeeks.com/install-git-2-on-centos-7/</span>
-<span class="k">RUN</span><span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>git-*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>git
-
 <span class="c"># full sudo rights inside the container</span>
 <span class="k">COPY</span><span class="w"> </span>/sudoers<span class="w"> </span>/etc/sudoers
 
@@ -323,6 +318,11 @@ commands used.</p>
 
 <span class="c"># set container time to BST</span>
 <span class="k">RUN</span><span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Europe/London<span class="w"> </span>/etc/localtime
+
+<span class="c"># latest git from the endpoint repo https://computingforgeeks.com/install-git-2-on-centos-7/</span>
+<span class="k">RUN</span><span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>git-*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>git-core
 </pre></div>
 </div>
 <p>The base image is selected with the <code class="docutils literal notranslate"><span class="pre">FROM</span></code> command this defines what the
