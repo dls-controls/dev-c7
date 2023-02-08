@@ -42,11 +42,6 @@ RUN yum update -y && \
     # https://github.com/containers/fuse-overlayfs/pull/381
     rm -fr /var/lib/yum/yumdb/*
 
-# latest git from the endpoint repo https://computingforgeeks.com/install-git-2-on-centos-7/
-RUN sudo yum remove -y git git-* && \
-    sudo yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm && \
-    sudo yum -y install git
-
 # full sudo rights inside the container
 COPY /sudoers /etc/sudoers
 
@@ -56,3 +51,10 @@ RUN yum reinstall -y glibc-common
 
 # set container time to BST
 RUN ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime
+
+# latest git from the endpoint repo https://computingforgeeks.com/install-git-2-on-centos-7/
+RUN sudo yum remove -y git git-* && \
+    # libcurl-devel for git-remote-https
+    yum -y install libcurl-devel && \
+    sudo yum -y install https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm && \
+    sudo yum -y install git
