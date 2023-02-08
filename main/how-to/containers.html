@@ -1,99 +1,54 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-21-g994ad12
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-23-g0fb0fdf
  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Troubleshooting" href="troubleshooting.html" />
     <link rel="prev" title="Bash Prompt in dev-c7" href="../tutorials/prompt.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
-          
 
           
-            <a href="../index.html" class="icon icon-home"> dev-c7
           
-
-          
+          <a href="../index.html" class="icon icon-home">
+            dev-c7
+              <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
               <div class="version">
                 main
               </div>
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
@@ -126,81 +81,40 @@
 <li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">dev-c7</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Managing Containers and Images on a Workstation</li>
-    
-    
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Managing Containers and Images on a Workstation</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/how-to/containers.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <section id="managing-containers-and-images-on-a-workstation">
-<h1>Managing Containers and Images on a Workstation<a class="headerlink" href="#managing-containers-and-images-on-a-workstation" title="Permalink to this heading">¶</a></h1>
+<h1>Managing Containers and Images on a Workstation<a class="headerlink" href="#managing-containers-and-images-on-a-workstation" title="Permalink to this heading"></a></h1>
 <section id="definitions">
-<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading">¶</a></h2>
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading"></a></h2>
 <p><strong>Images</strong> are snapshots of a filesystem used to bootstrap a container.</p>
 <p><strong>Containers</strong> are isolated execution environments with their file system based
 upon an Image.</p>
 </section>
 <section id="monitoring">
-<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this heading">¶</a></h2>
+<h2>Monitoring<a class="headerlink" href="#monitoring" title="Permalink to this heading"></a></h2>
 <p>You can see which <strong>Containers</strong> are running on your system with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
@@ -215,7 +129,7 @@ usually be deleted without any consequence except waiting for the download
 next time you launch a container that uses them.</p>
 </section>
 <section id="cleaning-up-space">
-<h2>Cleaning Up Space<a class="headerlink" href="#cleaning-up-space" title="Permalink to this heading">¶</a></h2>
+<h2>Cleaning Up Space<a class="headerlink" href="#cleaning-up-space" title="Permalink to this heading"></a></h2>
 <p>The container and image cache is stored in /scratch/&lt;fed_id&gt;/podman. If you
 are short on space you can use the following.</p>
 <p>To remove temporary images and stopped containers:</p>
@@ -239,7 +153,7 @@ are short on space you can use the following.</p>
 </section>
 </section>
 <section id="defining-a-container-image">
-<span id="dockerfile"></span><h1>Defining a Container Image<a class="headerlink" href="#defining-a-container-image" title="Permalink to this heading">¶</a></h1>
+<span id="dockerfile"></span><h1>Defining a Container Image<a class="headerlink" href="#defining-a-container-image" title="Permalink to this heading"></a></h1>
 <p>The dev-c7 container image is built from the container context folder
 <code class="docutils literal notranslate"><span class="pre">dev-c7/docker</span></code>.
 The context contains a Dockerfile which details the steps to build the
@@ -320,9 +234,11 @@ commands used.</p>
 <span class="k">RUN</span><span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Europe/London<span class="w"> </span>/etc/localtime
 
 <span class="c"># latest git from the endpoint repo https://computingforgeeks.com/install-git-2-on-centos-7/</span>
-<span class="k">RUN</span><span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>git-*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>sudo<span class="w"> </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>git-core
+<span class="k">RUN</span><span class="w"> </span>yum<span class="w"> </span>remove<span class="w"> </span>-y<span class="w"> </span>git<span class="w"> </span>git-*<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>#<span class="w"> </span>libcurl-devel<span class="w"> </span><span class="k">for</span><span class="w"> </span>git-remote-https
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>libcurl-devel<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>https://packages.endpointdev.com/rhel/7/os/x86_64/endpoint-repo.x86_64.rpm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>yum<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span>git<span class="w"> </span>git-core
 </pre></div>
 </div>
 <p>The base image is selected with the <code class="docutils literal notranslate"><span class="pre">FROM</span></code> command this defines what the
@@ -356,41 +272,30 @@ definition of the image generated.</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../tutorials/prompt.html" class="btn btn-neutral float-left" title="Bash Prompt in dev-c7" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
+    <p></p>
+  </div>
 
-    </p>
-  </div> 
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
   </script>
-
-  
-  
-    
-  
    
   <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
     <span class="rst-current-version" data-toggle="rst-current-version">
