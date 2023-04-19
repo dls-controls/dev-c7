@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Troubleshooting &mdash; dev-c7 2.3.1
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Derive your own container image" href="deriving.html" />
+    <link rel="prev" title="Managing Containers and Images on a Workstation" href="containers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            dev-c7
+              <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.1
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/start.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#edm-fonts">EDM Fonts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#insufficient-uids-gids">Insufficient UIDs/GIDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#subuid-settings-missing">subuid settings missing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyqt-errors">PyQt Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-protections-error">Memory Protections Error</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/how-to/troubleshooting.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading"></a></h1>
+<section id="edm-fonts">
+<h2>EDM Fonts<a class="headerlink" href="#edm-fonts" title="Permalink to this heading"></a></h2>
+<p>If you want to use edm then you will need to have the local fonts on your
+host machine. These will eventually be provided by default on the standard DLS
+RHEL8 workstation. However, early adopters will need to install these
+themselves.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span></code> on each of the rpms in this folder
+<a class="reference external" href="https://github.com/dls-controls/dev-c7/tree/dev/edm-fonts">https://github.com/dls-controls/dev-c7/tree/dev/edm-fonts</a></p>
+</section>
+<section id="insufficient-uids-gids">
+<h2>Insufficient UIDs/GIDs<a class="headerlink" href="#insufficient-uids-gids" title="Permalink to this heading"></a></h2>
+<p>When building the container for the first time, you may come across the following:
+<code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">Error:</span> <span class="pre">writing</span> <span class="pre">blob:</span> <span class="pre">adding</span> <span class="pre">layer</span> <span class="pre">with</span> <span class="pre">blob</span>
+<span class="pre">&quot;sha256:0b2dc63a68b9b80b6e261e0c71119894a739d353f8263d6b2f1394c66a45f5af&quot;:</span> <span class="pre">ApplyLayer</span> <span class="pre">exit</span> <span class="pre">status</span> <span class="pre">1</span> <span class="pre">stdout:</span>
+<span class="pre">stderr:</span> <span class="pre">potentially</span> <span class="pre">insufficient</span> <span class="pre">UIDs</span> <span class="pre">or</span> <span class="pre">GIDs</span> <span class="pre">available</span> <span class="pre">in</span> <span class="pre">user</span> <span class="pre">namespace</span> <span class="pre">(requested</span> <span class="pre">0:54</span> <span class="pre">for</span> <span class="pre">/run/lock/lockdev):</span>
+<span class="pre">Check</span> <span class="pre">/etc/subuid</span> <span class="pre">and</span> <span class="pre">/etc/subgid:</span> <span class="pre">lchown</span> <span class="pre">/run/lock/lockdev:</span> <span class="pre">invalid</span> <span class="pre">argument</span>
+<span class="pre">`</span></code></p>
+<p>Rootless Podman uses a pause process to preserve the unprivileged namespaces,
+which locks down the user files /etc/subuid and /etc/subgid.
+The following command will stop the pause process and release the files for
+editing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">podman</span> <span class="n">system</span> <span class="n">migrate</span>
+</pre></div>
+</div>
+</section>
+<section id="subuid-settings-missing">
+<h2>subuid settings missing<a class="headerlink" href="#subuid-settings-missing" title="Permalink to this heading"></a></h2>
+<p>IF you see this error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ERRO</span><span class="p">[</span><span class="mi">0000</span><span class="p">]</span> <span class="n">cannot</span> <span class="n">find</span> <span class="n">UID</span><span class="o">/</span><span class="n">GID</span> <span class="k">for</span> <span class="n">user</span> <span class="n">hgv27681</span><span class="p">:</span> <span class="n">No</span> <span class="n">subuid</span> <span class="n">ranges</span> <span class="n">found</span> <span class="k">for</span> <span class="n">user</span> <span class="s2">&quot;hgv27681&quot;</span> <span class="ow">in</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span> <span class="o">-</span> <span class="n">check</span> <span class="n">rootless</span> <span class="n">mode</span> <span class="ow">in</span> <span class="n">man</span> <span class="n">pages</span><span class="o">.</span>
+<span class="n">WARN</span><span class="p">[</span><span class="mi">0000</span><span class="p">]</span> <span class="n">Using</span> <span class="n">rootless</span> <span class="n">single</span> <span class="n">mapping</span> <span class="n">into</span> <span class="n">the</span> <span class="n">namespace</span><span class="o">.</span> <span class="n">This</span> <span class="n">might</span> <span class="k">break</span> <span class="n">some</span> <span class="n">images</span><span class="o">.</span> <span class="n">Check</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subuid</span> <span class="ow">and</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">subgid</span> <span class="k">for</span> <span class="n">adding</span> <span class="n">sub</span><span class="o">*</span><span class="n">ids</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">using</span> <span class="n">a</span> <span class="n">network</span> <span class="n">user</span>
+</pre></div>
+</div>
+<p>Then you probably have an empty /etc/subuid file. This is automatically updated by
+cfengine at 11AM every day. If your workstation was recently built then you may
+need to wait until the next 11AM !!</p>
+</section>
+<section id="pyqt-errors">
+<h2>PyQt Errors<a class="headerlink" href="#pyqt-errors" title="Permalink to this heading"></a></h2>
+<p>Some PyQt applications may show this error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libGL</span> <span class="n">error</span><span class="p">:</span> <span class="n">unable</span> <span class="n">to</span> <span class="n">load</span> <span class="n">driver</span><span class="p">:</span> <span class="n">swrast_dri</span><span class="o">.</span><span class="n">so</span>
+<span class="n">libGL</span> <span class="n">error</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">load</span> <span class="n">driver</span><span class="p">:</span> <span class="n">swrast</span>
+</pre></div>
+</div>
+<p>This is benign and can be ignored. (if the application is not launching Then
+this is a different issue - don’t be distracted by this error)</p>
+</section>
+<section id="memory-protections-error">
+<h2>Memory Protections Error<a class="headerlink" href="#memory-protections-error" title="Permalink to this heading"></a></h2>
+<p>If you see this on launch of podman containers:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span><span class="p">:</span> <span class="n">error</span> <span class="k">while</span> <span class="n">loading</span> <span class="n">shared</span> <span class="n">libraries</span><span class="p">:</span> <span class="n">libc</span><span class="o">.</span><span class="n">so</span><span class="mf">.6</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">change</span> <span class="n">memory</span> <span class="n">protections</span>
+</pre></div>
+</div>
+<p>Then you are missing the <code class="docutils literal notranslate"><span class="pre">mount_program</span> <span class="pre">=</span> <span class="pre">&quot;/bin/fuse-overlayfs&quot;</span></code> entry in your
+storage.conf file. See <a class="reference internal" href="podman.html"><span class="doc">Updating Podman Settings</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="containers.html" class="btn btn-neutral float-left" title="Managing Containers and Images on a Workstation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deriving.html" class="btn btn-neutral float-right" title="Derive your own container image" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.3.1
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
