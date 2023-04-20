@@ -24,7 +24,7 @@ Next, copy the startup script to your local bin directory and make it
 executable. ::
 
     cd $HOME/bin
-    wget -nc https://raw.githubusercontent.com/dls-controls/dev-c7/main/c7
+    curl -O https://raw.githubusercontent.com/dls-controls/dev-c7/main/c7
     chmod +x c7
 
 Finally, launch an instance of the container by typing::
