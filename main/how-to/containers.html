@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.0-30-ge70d065
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.1-2-g743b396
  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
@@ -242,6 +242,9 @@ commands used.</p>
 <span class="c"># change the nobody account and group IDs to match RedHat</span>
 <span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/99:99/65534:65534/&#39;</span><span class="w"> </span>/etc/passwd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">&#39;s/:99:/:65534:/&#39;</span><span class="w"> </span>/etc/group
+
+<span class="c"># Remove the git ownership check because this matches the behaviour of RHEL7 git</span>
+<span class="k">RUN</span><span class="w"> </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--add<span class="w"> </span>safe.directory<span class="w"> </span><span class="s1">&#39;*&#39;</span>
 </pre></div>
 </div>
 <p>The base image is selected with the <code class="docutils literal notranslate"><span class="pre">FROM</span></code> command this defines what the
