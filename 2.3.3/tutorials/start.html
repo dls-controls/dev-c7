@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quick Start &mdash; dev-c7 2.3.3
+ documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="More Features" href="continue.html" />
+    <link rel="prev" title="DLS RHEL7 in a Box Developer Container" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: rgb(7, 43, 93)" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            dev-c7
+              <img src="../_static/dls-logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                2.3.3
+
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#startup-script-c7">Startup Script “c7”</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-work">How to Work</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#install-edm-fonts">Install edm fonts</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="continue.html">More Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vscode.html">VSCode Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="prompt.html">Bash Prompt in dev-c7</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">How-to Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html">Managing Containers and Images on a Workstation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/containers.html#defining-a-container-image">Defining a Container Image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/deriving.html">Derive your own container image</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../how-to/podman.html">Updating Podman Settings</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Explanations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/how_it_works.html">How the dev-c7 Container Works</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/differences.html">RHEL7 native vs dev-c7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../explanations/why_dev_c7.html">Purpose of the dev-c7 Container</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">Releases</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: rgb(7, 43, 93)" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">dev-c7</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Quick Start</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/start.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="quick-start">
+<span id="start"></span><h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this heading"></a></h1>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading"></a></h2>
+<p>First, if you have never used containers at DLS before, then you must
+do an initial podman setup:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">dls_sw</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">setup</span><span class="o">-</span><span class="n">podman</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have previously used podman you may need to perform a migration.
+See <a class="reference internal" href="../how-to/podman.html"><span class="doc">Updating Podman Settings</span></a></p>
+</div>
+</section>
+<section id="startup-script-c7">
+<h2>Startup Script “c7”<a class="headerlink" href="#startup-script-c7" title="Permalink to this heading"></a></h2>
+<p>Next, copy the startup script to your local bin directory and make it
+executable.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/bin
+curl -O https://raw.githubusercontent.com/dls-controls/dev-c7/main/c7
+chmod +x c7
+</pre></div>
+</div>
+<p>Finally, launch an instance of the container by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span>
+</pre></div>
+</div>
+<p>That’s it. For further options see <a class="reference internal" href="continue.html"><span class="doc">More Features</span></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if don’t have a $HOME/bin folder then you will need to do
+<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">$HOME/bin</span></code>. It will automatically be added to your PATH in
+any new shells, but the current shell won’t see it.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the first invocation of an updated version of the container there
+will be a 30 second delay while the filesystem user id namespace mapping
+is cached. This will happen after the image is pulled from the registry.</p>
+</div>
+</section>
+<section id="how-to-work">
+<h2>How to Work<a class="headerlink" href="#how-to-work" title="Permalink to this heading"></a></h2>
+<p>At a dev-c7 prompt you can work normally as if you were sitting at a RHEL7
+workstation. Everything should work as before although there are a few
+differences, see
+<a class="reference internal" href="../explanations/differences.html"><span class="doc">RHEL7 native vs dev-c7</span></a>.</p>
+<p>If you find anything that does not work or have suggestions for improvement,
+please report it
+<a class="reference external" href="https://github.com/dls-controls/dev-c7/issues">On GitHub Issues</a>.</p>
+<ul class="simple">
+<li><p>You can launch multiple instances of dev-c7 and they will share the
+same container.</p></li>
+<li><p>You can run gnome-terminal and open multiple tabs - all will be in the
+container</p></li>
+<li><p>You can use module load as usual to make further software from dls_sw
+available</p></li>
+<li><p>You can run GUI apps as normal.</p></li>
+<li><p>You have full sudo rights and can install anything you need into the
+container with <code class="docutils literal notranslate"><span class="pre">yum</span> <span class="pre">install</span></code></p></li>
+<li><p>Do NOT run vscode inside the container. Instead run it normally and
+feel free to launch dev-c7 inside of its integrated terminals to do
+compilation, testing.</p></li>
+</ul>
+</section>
+<section id="install-edm-fonts">
+<h2>Install edm fonts<a class="headerlink" href="#install-edm-fonts" title="Permalink to this heading"></a></h2>
+<p>If you are using edm and the fonts look wrong or you get errors about
+missing fonts, then read on. This should not be required for RHEL8 machines
+at DLS which should already have the fonts installed.</p>
+<p>The edm display manager uses local fonts that need to be installed on your host.</p>
+<p>Again, these should be part of the standard RHEL8 installation but early
+adopters may need to install them as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">curl</span> <span class="o">-</span><span class="n">s</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">dls</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">dev</span><span class="o">-</span><span class="n">c7</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">edm</span><span class="o">-</span><span class="n">fonts</span><span class="o">/</span><span class="n">install</span><span class="o">-</span><span class="n">fonts</span><span class="o">.</span><span class="n">sh</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="DLS RHEL7 in a Box Developer Container" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="continue.html" class="btn btn-neutral float-right" title="More Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+   
+  <div id="other-versions-div" class="rst-versions" data-toggle="rst-versions" role="note" aria-label="Versions" style="visibility: hidden">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Other Versions</span>
+      2.3.3
+
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl id="other-versions-dl"/>
+    </div>
+  </div>
+  <script>
+    function addVersion(name) {
+      var dd = document.createElement("dd");
+      var a = document.createElement("a");
+      a.href = "../../" + name;
+      a.innerText = name;
+      dd.appendChild(a);
+      document.getElementById('other-versions-dl').appendChild(dd);
+    }
+    // Get versions.txt and add a version for each line
+    fetch("../../versions.txt").then(response => {
+      if (response.ok) {
+        document.getElementById('other-versions-div').style.visibility = "visible";
+        return response.text().then(text => text.split(/\r?\n/).forEach(addVersion))
+      }
+    });
+  </script>
+
+
+</body>
+</html>
