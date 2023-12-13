@@ -143,13 +143,14 @@ volumes="
 "
 
 devices="-v /dev/ttyS0:/dev/ttyS0"
-opts="${network} --hostname ${hostname} --security-opt=label=type:container_runtime_t"
+opts="${network} --hostname ${hostname} --security-opt=label=disable"
+# Get around the issue of /tmp being mounted noexec by creating our own tmpfs
+opts="${opts} --mount type=tmpfs,destination=/tmp"
 
 # the identity settings enable secondary groups in the container
 if [[ ${rhel} == 8 ]] ; then
     identity="${userns}
               --annotation run.oci.keep_original_groups=1"
-    volumes="${volumes} -v /tmp:/tmp"
 fi
 
 # this runtime is also required for secondary groups
