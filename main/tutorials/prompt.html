@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bash Prompt in dev-c7 &mdash; dev-c7 2.3.3-2-g9f5b22b
+  <title>Bash Prompt in dev-c7 &mdash; dev-c7 2.3.3-4-gd9e7230
  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
+
+  
     <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -106,13 +108,13 @@
            <div itemprop="articleBody">
              
   <section id="bash-prompt-in-dev-c7">
-<h1>Bash Prompt in dev-c7<a class="headerlink" href="#bash-prompt-in-dev-c7" title="Permalink to this heading"></a></h1>
+<h1>Bash Prompt in dev-c7<a class="headerlink" href="#bash-prompt-in-dev-c7" title="Link to this heading"></a></h1>
 <p>It is useful to have a way to tell you are inside of the developer
 container. By default your bash prompt will look exactly the
 same inside and out of the container.</p>
 <p>You can fix this in one of two ways.</p>
 <section id="modify-bashrc-local">
-<h2>Modify .bashrc_local<a class="headerlink" href="#modify-bashrc-local" title="Permalink to this heading"></a></h2>
+<h2>Modify .bashrc_local<a class="headerlink" href="#modify-bashrc-local" title="Link to this heading"></a></h2>
 <p><strong>Preferred Solution</strong></p>
 <p>The file $HOME/.bashrc_local is sourced by bash for each shell that you
 launch and it is a place to put your personal settings.</p>
@@ -127,7 +129,7 @@ that you are inside the developer container.</p>
 of <code class="docutils literal notranslate"><span class="pre">[C7]</span></code>.</p>
 </section>
 <section id="change-the-hostname">
-<h2>Change the hostname<a class="headerlink" href="#change-the-hostname" title="Permalink to this heading"></a></h2>
+<h2>Change the hostname<a class="headerlink" href="#change-the-hostname" title="Link to this heading"></a></h2>
 <p>Typically the PS1 prompt shows you which host you are on. You can change
 the name of the host inside the container to give you an indicator that
 you are in the developer container.</p>

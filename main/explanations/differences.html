@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RHEL7 native vs dev-c7 &mdash; dev-c7 2.3.3-2-g9f5b22b
+  <title>RHEL7 native vs dev-c7 &mdash; dev-c7 2.3.3-4-gd9e7230
  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
+
+  
     <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -107,12 +109,12 @@
            <div itemprop="articleBody">
              
   <section id="rhel7-native-vs-dev-c7">
-<h1>RHEL7 native vs dev-c7<a class="headerlink" href="#rhel7-native-vs-dev-c7" title="Permalink to this heading"></a></h1>
+<h1>RHEL7 native vs dev-c7<a class="headerlink" href="#rhel7-native-vs-dev-c7" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code> container attempts to emulate the same environment and file systems
 that a DLS RHEL7 workstation sees. Inevitably there are a few differences
 which are documented on this page.</p>
 <section id="centos-vs-rhel7">
-<h2>Centos vs RHEL7<a class="headerlink" href="#centos-vs-rhel7" title="Permalink to this heading"></a></h2>
+<h2>Centos vs RHEL7<a class="headerlink" href="#centos-vs-rhel7" title="Link to this heading"></a></h2>
 <p>This container is based upon a Centos 7 image rather than a RHEL7 image
 because of complicated licensing for RHEL7 containers. In almost all
 respects this should make little difference because both OSes have the
@@ -124,7 +126,7 @@ a release for RHEL7.</p>
 <p>We are not aware of any other DLS tools affected by this at present.</p>
 </section>
 <section id="user-ids">
-<h2>User IDs<a class="headerlink" href="#user-ids" title="Permalink to this heading"></a></h2>
+<h2>User IDs<a class="headerlink" href="#user-ids" title="Link to this heading"></a></h2>
 <p>Inside of the container there are only two interactive users. Your own user
 and root. <code class="docutils literal notranslate"><span class="pre">c7</span></code> uses <code class="docutils literal notranslate"><span class="pre">--userns=keep-id</span></code> so that your same user id
 is used inside and outside of the container.</p>
@@ -150,7 +152,7 @@ drwxrwsr-x. 5    65534 65534 16384 Jun 13 16:41 <font color="#729FCF"><b>makeIoc
 -rw-rw-r--. 1    65534 65534    29 Feb 21  2019 module.ini
 </pre></section>
 <section id="no-services">
-<h2>No Services<a class="headerlink" href="#no-services" title="Permalink to this heading"></a></h2>
+<h2>No Services<a class="headerlink" href="#no-services" title="Link to this heading"></a></h2>
 <p>By default a container runs a single process (of id 1) and terminates when
 that process terminates. <code class="docutils literal notranslate"><span class="pre">c7</span></code> launches a background process
 that does nothing as process 1 and

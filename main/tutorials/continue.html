@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>More Features &mdash; dev-c7 2.3.3-2-g9f5b22b
+  <title>More Features &mdash; dev-c7 2.3.3-4-gd9e7230
  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
+
+  
     <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -109,11 +111,11 @@
            <div itemprop="articleBody">
              
   <section id="more-features">
-<h1>More Features<a class="headerlink" href="#more-features" title="Permalink to this heading"></a></h1>
+<h1>More Features<a class="headerlink" href="#more-features" title="Link to this heading"></a></h1>
 <p>This tutorial takes you through a few additional features provided by the
 launch script.</p>
 <section id="options">
-<h2>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h2>
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
 <p>To see optional parameters, run the launch script with -h:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$  c7 -h
 
@@ -139,7 +141,7 @@ Options:
 </div>
 </section>
 <section id="versions">
-<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this heading"></a></h2>
+<h2>Versions<a class="headerlink" href="#versions" title="Link to this heading"></a></h2>
 <p>The default behaviour is that <code class="docutils literal notranslate"><span class="pre">c7</span></code> will use the latest container version in the
 registry on first invocation. When it launches and attaches to the
 container it will report the version you are currently using.</p>
@@ -158,7 +160,7 @@ github container registry for this project
 <a class="reference external" href="https://ghcr.io/dls-controls/dev-c7">https://ghcr.io/dls-controls/dev-c7</a></p>
 </section>
 <section id="lifetime">
-<h2>Lifetime<a class="headerlink" href="#lifetime" title="Permalink to this heading"></a></h2>
+<h2>Lifetime<a class="headerlink" href="#lifetime" title="Link to this heading"></a></h2>
 <p>Note that the container should be considered ephemeral. The system partition
 can be changed and you have full sudo rights, but note:</p>
 <ul class="simple">
@@ -172,7 +174,7 @@ to implement, see <a class="reference internal" href="../how-to/deriving.html#de
 </ul>
 </section>
 <section id="deleting-the-container">
-<span id="deleting"></span><h2>Deleting the container<a class="headerlink" href="#deleting-the-container" title="Permalink to this heading"></a></h2>
+<span id="deleting"></span><h2>Deleting the container<a class="headerlink" href="#deleting-the-container" title="Link to this heading"></a></h2>
 <p>To reset the container back to its original state we ask podman
 to stop it and delete it.</p>
 <div class="admonition warning">
@@ -200,7 +202,7 @@ persist changes see <a class="reference internal" href="../how-to/deriving.html#
 </div>
 </section>
 <section id="upgrade-to-a-new-c7-launcher-version">
-<h2>Upgrade to a new c7 launcher version<a class="headerlink" href="#upgrade-to-a-new-c7-launcher-version" title="Permalink to this heading"></a></h2>
+<h2>Upgrade to a new c7 launcher version<a class="headerlink" href="#upgrade-to-a-new-c7-launcher-version" title="Link to this heading"></a></h2>
 <p>If the script has acquired new features you may want to update as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $HOME/bin
 rm c7

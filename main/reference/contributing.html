@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; dev-c7 2.3.3-2-g9f5b22b
+  <title>Contributing &mdash; dev-c7 2.3.3-4-gd9e7230
  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
+
+  
     <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -110,20 +112,20 @@
            <div itemprop="articleBody">
              
   <section id="contributing">
-<h1>Contributing<a class="headerlink" href="#contributing" title="Permalink to this heading"></a></h1>
+<h1>Contributing<a class="headerlink" href="#contributing" title="Link to this heading"></a></h1>
 <p>Contributions and issues are most welcome! All issues and pull requests are
 handled through <a class="reference external" href="https://github.com/dls-controls/dev-c7/issues">GitHub</a>. Also, please check for any existing issues before
 filing a new one. If you have a great idea but it involves big changes, please
 file a ticket before making a pull request! We want to make sure you don’t spend
 your time coding something that might not fit the scope of the project.</p>
 <section id="testing">
-<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this heading"></a></h2>
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
 <section id="adding-features-to-the-container-image">
-<h3>Adding Features to the Container Image<a class="headerlink" href="#adding-features-to-the-container-image" title="Permalink to this heading"></a></h3>
+<h3>Adding Features to the Container Image<a class="headerlink" href="#adding-features-to-the-container-image" title="Link to this heading"></a></h3>
 <p>See <a class="reference internal" href="../how-to/containers.html#dockerfile"><span class="std std-ref">Defining a Container Image</span></a></p>
 </section>
 <section id="make-container-image">
-<h3>Make Container Image<a class="headerlink" href="#make-container-image" title="Permalink to this heading"></a></h3>
+<h3>Make Container Image<a class="headerlink" href="#make-container-image" title="Link to this heading"></a></h3>
 <p>The image can be made locally with the script <code class="docutils literal notranslate"><span class="pre">build-dec-c7</span></code>. The
 resulting image will be placed in the local cache with the tag
 <code class="docutils literal notranslate"><span class="pre">ghcr.io/dls-controls/dev-c7:latest</span></code>.</p>
@@ -133,7 +135,7 @@ launch and try out the new container image.</p>
 </section>
 </section>
 <section id="documentation">
-<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h2>
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
 <p>In order to build the documentation you will require a python virtual
 environment. Set up as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd dev-c7
@@ -161,7 +163,7 @@ $ firefox build/html/index.html
 </div>
 </section>
 <section id="release-process">
-<h2>Release Process<a class="headerlink" href="#release-process" title="Permalink to this heading"></a></h2>
+<h2>Release Process<a class="headerlink" href="#release-process" title="Link to this heading"></a></h2>
 <p>To make a new release, please follow this checklist:</p>
 <ul class="simple">
 <li><p>make changes on a branch and test locally with <code class="docutils literal notranslate"><span class="pre">build-dev-c7</span></code></p></li>

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>How the dev-c7 Container Works &mdash; dev-c7 2.3.3-2-g9f5b22b
+  <title>How the dev-c7 Container Works &mdash; dev-c7 2.3.3-4-gd9e7230
  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
+
+  
     <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -109,9 +111,9 @@
            <div itemprop="articleBody">
              
   <section id="how-the-dev-c7-container-works">
-<h1>How the dev-c7 Container Works<a class="headerlink" href="#how-the-dev-c7-container-works" title="Permalink to this heading"></a></h1>
+<h1>How the dev-c7 Container Works<a class="headerlink" href="#how-the-dev-c7-container-works" title="Link to this heading"></a></h1>
 <section id="podman">
-<h2>Podman<a class="headerlink" href="#podman" title="Permalink to this heading"></a></h2>
+<h2>Podman<a class="headerlink" href="#podman" title="Link to this heading"></a></h2>
 <p>Podman is a daemonless, rootless container engine developed by RedHat,
 designed as an alternative to Docker.</p>
 <p>Using containers allows us to package up all the dependencies of an
@@ -122,7 +124,7 @@ of system libraries and tools plus mounted shared file systems such
 as <code class="docutils literal notranslate"><span class="pre">/dls_sw</span></code> and <code class="docutils literal notranslate"><span class="pre">/home</span></code>.</p>
 </section>
 <section id="containers">
-<h2>Containers<a class="headerlink" href="#containers" title="Permalink to this heading"></a></h2>
+<h2>Containers<a class="headerlink" href="#containers" title="Link to this heading"></a></h2>
 <p>A quote from docker.com:</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -146,7 +148,7 @@ However with <code class="docutils literal notranslate"><span class="pre">c7</sp
 the user explicitly deletes <code class="docutils literal notranslate"><span class="pre">dev-c7</span></code>.</p>
 </section>
 <section id="container-lifetime">
-<h2>Container lifetime<a class="headerlink" href="#container-lifetime" title="Permalink to this heading"></a></h2>
+<h2>Container lifetime<a class="headerlink" href="#container-lifetime" title="Link to this heading"></a></h2>
 <p>The script <code class="docutils literal notranslate"><span class="pre">c7</span></code> launches a container in the background using
 podman. It then executes an interactive bash shell inside of that
 container.</p>
@@ -161,7 +163,7 @@ restart it.</p>
 it persists changes that you make in the OS until it is explicitly deleted.</p>
 </section>
 <section id="file-systems">
-<h2>File Systems<a class="headerlink" href="#file-systems" title="Permalink to this heading"></a></h2>
+<h2>File Systems<a class="headerlink" href="#file-systems" title="Link to this heading"></a></h2>
 <p>The system partition in which the operating system is installed resides
 inside the container. However <code class="docutils literal notranslate"><span class="pre">c7</span></code> mounts a number of host and
 shared file systems. This is how the container is made to look very
@@ -180,7 +182,7 @@ similar to a RHEL7 workstation. The mounted file systems are as follows:</p>
 </div>
 </section>
 <section id="user-profile">
-<h2>User Profile<a class="headerlink" href="#user-profile" title="Permalink to this heading"></a></h2>
+<h2>User Profile<a class="headerlink" href="#user-profile" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">c7</span></code> executes <code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">-l</span></code> in order to create an interactive
 shell in the container. The following features make this work:</p>
 <ul class="simple">

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VSCode Integration &mdash; dev-c7 2.3.3-2-g9f5b22b
+  <title>VSCode Integration &mdash; dev-c7 2.3.3-4-gd9e7230
  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/theme_overrides.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
+
+  
     <link rel="shortcut icon" href="../_static/dls-favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -116,7 +118,7 @@
            <div itemprop="articleBody">
              
   <section id="vscode-integration">
-<h1>VSCode Integration<a class="headerlink" href="#vscode-integration" title="Permalink to this heading"></a></h1>
+<h1>VSCode Integration<a class="headerlink" href="#vscode-integration" title="Link to this heading"></a></h1>
 <p>VSCode has beautiful integration for developing in containers. See here
 <a class="reference external" href="https://code.visualstudio.com/docs/remote/containers">https://code.visualstudio.com/docs/remote/containers</a> for a detailed
 description of this feature.</p>
@@ -129,9 +131,9 @@ description of this feature.</p>
 container</p></li>
 </ul>
 <section id="initial-setup">
-<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this heading"></a></h2>
+<h2>Initial Setup<a class="headerlink" href="#initial-setup" title="Link to this heading"></a></h2>
 <section id="install-remote-development-plugin">
-<h3>Install remote development plugin<a class="headerlink" href="#install-remote-development-plugin" title="Permalink to this heading"></a></h3>
+<h3>Install remote development plugin<a class="headerlink" href="#install-remote-development-plugin" title="Link to this heading"></a></h3>
 <p>Run up VSCode and install the remote development plugin:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">load</span> <span class="n">vscode</span>
 <span class="n">code</span>
@@ -144,7 +146,7 @@ container</p></li>
 </div>
 </section>
 <section id="update-vscode-user-settings">
-<h3>Update VSCode User settings<a class="headerlink" href="#update-vscode-user-settings" title="Permalink to this heading"></a></h3>
+<h3>Update VSCode User settings<a class="headerlink" href="#update-vscode-user-settings" title="Link to this heading"></a></h3>
 <p>Add the following settings to you user configuration for VSCode in
 <code class="docutils literal notranslate"><span class="pre">$HOME/.config/Code/User/settings.json</span></code></p>
 <p>These settings ensures that each terminal loads the bash (login) profile by
@@ -170,7 +172,7 @@ docker.</p>
 </section>
 </section>
 <section id="how-to-use">
-<h2>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this heading"></a></h2>
+<h2>How to Use<a class="headerlink" href="#how-to-use" title="Link to this heading"></a></h2>
 <p>To use VSCode with a developer container, first add the
 <code class="docutils literal notranslate"><span class="pre">.devcontainer</span></code> folder with <code class="docutils literal notranslate"><span class="pre">devcontainer.json</span></code>
 file to the root of your project. The script has a helper to do this:</p>
@@ -199,7 +201,7 @@ is connected to it.</p>
 See <a class="reference external" href="https://github.com/dls-controls/dev-c7/releases">https://github.com/dls-controls/dev-c7/releases</a> for the latest updates.</p>
 </section>
 <section id="container-lifetime">
-<h2>Container Lifetime<a class="headerlink" href="#container-lifetime" title="Permalink to this heading"></a></h2>
+<h2>Container Lifetime<a class="headerlink" href="#container-lifetime" title="Link to this heading"></a></h2>
 <p>Like the <code class="docutils literal notranslate"><span class="pre">c7</span></code> script, the container will be kept alive. If you
 exit and re-enter VSCode you will be reconnected to the same container.</p>
 <p>When you run <code class="docutils literal notranslate"><span class="pre">podman</span> <span class="pre">ps</span></code> you will see the container is running and is named
@@ -213,7 +215,7 @@ accessed by clicking the icon in the very bottom left of the VSCode window.</p>
 <figure class="align-center" id="id1">
 <img alt="../_images/button.png" src="../_images/button.png" />
 <figcaption>
-<p><span class="caption-text">The Remotes Menu Button</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<p><span class="caption-text">The Remotes Menu Button</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 <p>The remotes menu option <code class="docutils literal notranslate"><span class="pre">Rebuild</span> <span class="pre">Container</span></code> will close the session,
@@ -239,7 +241,7 @@ file.</p></li>
 </div>
 </section>
 <section id="vscode-container-removal">
-<h2>VSCode Container Removal<a class="headerlink" href="#vscode-container-removal" title="Permalink to this heading"></a></h2>
+<h2>VSCode Container Removal<a class="headerlink" href="#vscode-container-removal" title="Link to this heading"></a></h2>
 <p>If you want to remove all of the containers that VSCode has created then the
 following will do the trick:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>podman rmi -f $(podman images --filter=reference=&#39;*vsc-*&#39; -q)
@@ -249,9 +251,9 @@ following will do the trick:</p>
 if you are running low on disk space.</p>
 </section>
 <section id="known-issues">
-<span id="vscode-known"></span><h2>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this heading"></a></h2>
+<span id="vscode-known"></span><h2>Known Issues<a class="headerlink" href="#known-issues" title="Link to this heading"></a></h2>
 <section id="first-integrated-terminal">
-<h3>First integrated terminal<a class="headerlink" href="#first-integrated-terminal" title="Permalink to this heading"></a></h3>
+<h3>First integrated terminal<a class="headerlink" href="#first-integrated-terminal" title="Link to this heading"></a></h3>
 <p>When a devcontainer is launched, it will usually start a single terminal that is
 NOT using the login profile. This means you won’t see your usual bash prompt
 and none of the DLS development environment will be available.</p>
