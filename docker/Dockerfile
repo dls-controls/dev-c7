@@ -13,6 +13,11 @@ ENV LC_ALL=en_US.UTF-8
 ENV LC_CTYPE=en_US.UTF-8
 ENV MODULEPATH=/etc/scl/modulefiles:/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/dls_sw/apps/Modules/modulefiles:/dls_sw/etc/modulefiles:/home/hgv27681/privatemodules:/dls_sw/prod/tools/RHEL8-x86_64/defaults/modulefiles
 
+# switch to the vault for centos packages!
+RUN sed -i s/mirror.centos.org/vault.centos.org/g /etc/yum.repos.d/*.repo && \
+    sed -i s/^#.*baseurl=http/baseurl=http/g /etc/yum.repos.d/*.repo && \
+    sed -i s/^mirrorlist=http/#mirrorlist=http/g /etc/yum.repos.d/*.repo
+
 # make QT not complain
 ENV QT_X11_NO_MITSHM=1
 ENV LIBGL_ALWAYS_INDIRECT=1
@@ -41,6 +46,11 @@ RUN yum update -y && \
     # hopefully can be removed when this PR is released and deployed at DLS
     # https://github.com/containers/fuse-overlayfs/pull/381
     rm -fr /var/lib/yum/yumdb/*
+
+# install the required libusb developer library
+RUN curl -SL https://rpmfind.net/linux/opensuse/distribution/leap/15.5/repo/oss/x86_64/libusb-1_0-devel-1.0.24-150400.3.3.1.x86_64.rpm -o /tmp/libusb-devel-1.rpm && \
+    yum install /tmp/libusb-devel-1.rpm
+    rm /tmp/libusb-devel-1.rpm
 
 # full sudo rights inside the container
 COPY /sudoers /etc/sudoers
