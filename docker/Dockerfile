@@ -49,7 +49,7 @@ RUN yum update -y && \
 
 # install the required libusb developer library
 RUN curl -SL https://rpmfind.net/linux/opensuse/distribution/leap/15.5/repo/oss/x86_64/libusb-1_0-devel-1.0.24-150400.3.3.1.x86_64.rpm -o /tmp/libusb-devel-1.rpm && \
-    yum install /tmp/libusb-devel-1.rpm
+    yum install /tmp/libusb-devel-1.rpm && \
     rm /tmp/libusb-devel-1.rpm
 
 # full sudo rights inside the container
