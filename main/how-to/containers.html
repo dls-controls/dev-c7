@@ -4,11 +4,11 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.3-4-gd9e7230
+  <title>Managing Containers and Images on a Workstation &mdash; dev-c7 2.3.3-6-gf931903
  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=eafc0fe6" />
+      <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
       <link rel="stylesheet" type="text/css" href="../_static/theme_overrides.css?v=e20ccd95" />
 
   
@@ -19,8 +19,8 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=b7ff5eed"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/documentation_options.js?v=5a7efb4f"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -197,6 +197,11 @@ commands used.</p>
 <span class="k">ENV</span><span class="w"> </span><span class="nv">LC_CTYPE</span><span class="o">=</span>en_US.UTF-8
 <span class="k">ENV</span><span class="w"> </span><span class="nv">MODULEPATH</span><span class="o">=</span>/etc/scl/modulefiles:/etc/scl/modulefiles:/etc/scl/modulefiles:/usr/share/Modules/modulefiles:/etc/modulefiles:/usr/share/modulefiles:/dls_sw/apps/Modules/modulefiles:/dls_sw/etc/modulefiles:/home/hgv27681/privatemodules:/dls_sw/prod/tools/RHEL8-x86_64/defaults/modulefiles
 
+<span class="c"># switch to the vault for centos packages!</span>
+<span class="k">RUN</span><span class="w"> </span>sed<span class="w"> </span>-i<span class="w"> </span>s/mirror.centos.org/vault.centos.org/g<span class="w"> </span>/etc/yum.repos.d/*.repo<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span>s/^#.*baseurl<span class="o">=</span>http/baseurl<span class="o">=</span>http/g<span class="w"> </span>/etc/yum.repos.d/*.repo<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>sed<span class="w"> </span>-i<span class="w"> </span>s/^mirrorlist<span class="o">=</span>http/#mirrorlist<span class="o">=</span>http/g<span class="w"> </span>/etc/yum.repos.d/*.repo
+
 <span class="c"># make QT not complain</span>
 <span class="k">ENV</span><span class="w"> </span><span class="nv">QT_X11_NO_MITSHM</span><span class="o">=</span><span class="m">1</span>
 <span class="k">ENV</span><span class="w"> </span><span class="nv">LIBGL_ALWAYS_INDIRECT</span><span class="o">=</span><span class="m">1</span>
@@ -225,6 +230,11 @@ commands used.</p>
 <span class="w">    </span>#<span class="w"> </span>hopefully<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>removed<span class="w"> </span>when<span class="w"> </span>this<span class="w"> </span>PR<span class="w"> </span>is<span class="w"> </span>released<span class="w"> </span>and<span class="w"> </span>deployed<span class="w"> </span>at<span class="w"> </span>DLS
 <span class="w">    </span>#<span class="w"> </span>https://github.com/containers/fuse-overlayfs/pull/381
 <span class="w">    </span>rm<span class="w"> </span>-fr<span class="w"> </span>/var/lib/yum/yumdb/*
+
+<span class="c"># install the required libusb developer library</span>
+<span class="k">RUN</span><span class="w"> </span>curl<span class="w"> </span>-SL<span class="w"> </span>https://rpmfind.net/linux/opensuse/distribution/leap/15.5/repo/oss/x86_64/libusb-1_0-devel-1.0.24-150400.3.3.1.x86_64.rpm<span class="w"> </span>-o<span class="w"> </span>/tmp/libusb-devel-1.rpm<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>yum<span class="w"> </span>install<span class="w"> </span>/tmp/libusb-devel-1.rpm
+<span class="w">    </span>rm<span class="w"> </span>/tmp/libusb-devel-1.rpm
 
 <span class="c"># full sudo rights inside the container</span>
 <span class="k">COPY</span><span class="w"> </span>/sudoers<span class="w"> </span>/etc/sudoers
