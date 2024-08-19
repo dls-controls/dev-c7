@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick Start &mdash; dev-c7 2024.8.1-5-gffcf839
+  <title>Quick Start &mdash; dev-c7 2024.8.1-2-gcbc2705
  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
@@ -19,7 +19,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=aa0f91b1"></script>
+        <script src="../_static/documentation_options.js?v=f96cd13b"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -56,6 +56,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-for-august-2024">Update for August 2024</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#startup-script-c7">Startup Script “c7”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-work">How to Work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-edm-fonts">Install edm fonts</a></li>
@@ -123,6 +124,22 @@ do an initial podman setup:</p>
 <p>If you have previously used podman you may need to perform a migration.
 See <a class="reference internal" href="../how-to/podman.html"><span class="doc">Updating Podman Settings</span></a></p>
 </div>
+</section>
+<section id="update-for-august-2024">
+<h2>Update for August 2024<a class="headerlink" href="#update-for-august-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Centos is end of life so we have switched to using the centos rpm package ‘vault’ instead of mirrors.</p></li>
+<li><p>missing dependencies for building EPICS 7 have been added (libusb 1.0 and libnet)</p></li>
+<li><p>due to dependency clashes we had to remove GUI apps such as firefox</p></li>
+</ul>
+<p>To run the latest dev c7 with libusb 1.0 and NO GUI apps:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`bash</span>
+<span class="pre">c7</span> <span class="pre">-dv</span> <span class="pre">2024.8.1</span>
+<span class="pre">`</span></code></p>
+<p>To run a version with older libusb and original set of GUI apps:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">c7</span> <span class="pre">-dv</span> <span class="pre">2024.8.1gui</span>
+<span class="pre">`</span></code></p>
 </section>
 <section id="startup-script-c7">
 <h2>Startup Script “c7”<a class="headerlink" href="#startup-script-c7" title="Link to this heading"></a></h2>
