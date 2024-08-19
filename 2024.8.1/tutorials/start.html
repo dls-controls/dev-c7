@@ -57,6 +57,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#setup">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-for-august-2024">Update for August 2024</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#startup-script-c7">Startup Script “c7”</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#how-to-work">How to Work</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-edm-fonts">Install edm fonts</a></li>
@@ -123,6 +124,22 @@ do an initial podman setup:</p>
 <p class="admonition-title">Note</p>
 <p>If you have previously used podman you may need to perform a migration.
 See <a class="reference internal" href="../how-to/podman.html"><span class="doc">Updating Podman Settings</span></a></p>
+</div>
+</section>
+<section id="update-for-august-2024">
+<h2>Update for August 2024<a class="headerlink" href="#update-for-august-2024" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Centos is end of life so we have switched to using the centos rpm package ‘vault’ instead of mirrors.</p></li>
+<li><p>missing dependencies for building EPICS 7 have been added (libusb 1.0 and libnet)</p></li>
+<li><p>due to dependency clashes we had to remove GUI apps such as firefox</p></li>
+</ul>
+<p>To run the latest dev c7 with libusb 1.0 and NO GUI apps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span> <span class="o">-</span><span class="n">dv</span> <span class="mf">2024.8.1</span>
+</pre></div>
+</div>
+<p>To run a version with older libusb and original set of GUI apps:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c7</span> <span class="o">-</span><span class="n">dv</span> <span class="mf">2024.8.1</span><span class="n">gui</span>
+</pre></div>
 </div>
 </section>
 <section id="startup-script-c7">
