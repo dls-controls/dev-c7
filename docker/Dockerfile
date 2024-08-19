@@ -40,6 +40,8 @@ RUN yum update -y && \
     sudo meld tk dejavu-sans-mono-fonts gnome-terminal xterm xmessage evince eog firefox java openldap-clients && \
     # These packages are not found in the initial install so try again
     yum install -y zeromq-devel git2u meld && \
+    #install libnet library for EPICS module builds
+    yum install -y libnet libnet-devel && \
     # clean up caches
     yum clean all && \
     # nasty hack to avoid overlay filesystem problems with --userns=keep-id
@@ -47,9 +49,13 @@ RUN yum update -y && \
     # https://github.com/containers/fuse-overlayfs/pull/381
     rm -fr /var/lib/yum/yumdb/*
 
-# install the required libusb developer library
-RUN curl -SL https://rpmfind.net/linux/opensuse/distribution/leap/15.5/repo/oss/x86_64/libusb-1_0-devel-1.0.24-150400.3.3.1.x86_64.rpm -o /tmp/libusb-devel-1.rpm && \
-    yum install /tmp/libusb-devel-1.rpm
+#install the required libusb developer library
+RUN yum remove -y libusbx && \
+    curl -SL http://rpmfind.net/linux/opensuse/distribution/leap/15.5/repo/oss/x86_64/libusb-1_0-0-1.0.24-150400.3.3.1.x86_64.rpm -o /tmp/libusb-1.rpm && \
+    yum install -y /tmp/libusb-1.rpm && \
+    rm /tmp/libusb-1.rpm && \
+    curl -SL https://rpmfind.net/linux/opensuse/distribution/leap/15.5/repo/oss/x86_64/libusb-1_0-devel-1.0.24-150400.3.3.1.x86_64.rpm -o /tmp/libusb-devel-1.rpm && \
+    yum install -y /tmp/libusb-devel-1.rpm && \
     rm /tmp/libusb-devel-1.rpm
 
 # full sudo rights inside the container
