@@ -17,6 +17,26 @@ do an initial podman setup::
     See `../how-to/podman`
 
 
+Update for August 2024
+----------------------
+
+- Centos is end of life so we have switched to using the centos rpm package 'vault' instead of mirrors.
+- missing dependencies for building EPICS 7 have been added (libusb 1.0 and libnet)
+- due to dependency clashes we had to remove GUI apps such as firefox
+
+To run the latest dev c7 with libusb 1.0 and NO GUI apps:
+
+```bash
+c7 -dv 2024.8.1
+```
+
+To run a version with older libusb and original set of GUI apps:
+
+```
+c7 -dv 2024.8.1gui
+```
+
+
 Startup Script "c7"
 -------------------
 
