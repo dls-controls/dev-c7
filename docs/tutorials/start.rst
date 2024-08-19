@@ -34,7 +34,6 @@ To run a version with older libusb and original set of GUI apps::
     c7 -dv 2024.8.1gui
 
 
-
 Startup Script "c7"
 -------------------
 
