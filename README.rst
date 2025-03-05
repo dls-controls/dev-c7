@@ -1,13 +1,12 @@
 DLS RHEL7 in a Box Developer Container
 ======================================
 
-```
-**************************************************************************
-* THIS PROJECT HAS BEEN ARCHIVED.                                        *
-* IT NOW RESIDES IN THE DiamondLightSource Organization                  *
-* Please see https://diamondlightsource.github.io/dev-c7/main/index.html *
-**************************************************************************
-```
+NOTICE::
+    **************************************************************************
+    * THIS PROJECT HAS BEEN ARCHIVED.                                        *
+    * IT NOW RESIDES IN THE DiamondLightSource Organization                  *
+    * Please see https://diamondlightsource.github.io/dev-c7/main/index.html *
+    **************************************************************************
 
 |code_ci| |docs_ci| |license|
 
